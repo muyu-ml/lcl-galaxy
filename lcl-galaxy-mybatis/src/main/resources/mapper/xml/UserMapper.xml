@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lcl.galaxy.mybatis.xml.mapper.UserMapper">
+    <!-- 根据id获取用户信息 -->
+    <select id="findUserById" parameterType="int" resultType="user">
+        select * from user where id = #{id}
+    </select>
+    <!-- 根据名称模糊查询用户列表 -->
+    <select id="findUserByUsername" parameterType="java.lang.String" resultType="user">
+        <!-- select * from user where username like '%${value}%  -->
+        select * from user where username like CONCAT('%',#{name},'%')
+    </select>
+
+    <insert id="insertUser" parameterType="user">
+        <selectKey keyProperty="id" order="AFTER" resultType="long">
+            select LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO user(username, birthday, sex, address) VALUES (#{username}, #{birthday}, #{sex}, #{address});
+    </insert>
+
+    <select id="getCount" parameterType="String" resultType="int">
+          select count(1) from user where username = #{value };
+    </select>
+
+    
+
+    <resultMap id="userAliaseMap" type="user">
+        <result property="username" column="uname"/>
+        <result property="birthday" column="bir"/>
+        <result property="sex" column="aaasex"/>
+        <result property="address" column="addr"/>
+    </resultMap>
+
+    <select id="selectAsAliase" resultMap="userAliaseMap" parameterType="int">
+        select id, username uname, birthday bir, sex  aaasex, address addr from user where id = #{id }
+    </select>
+
+
+
+    <select id="selectUserOrderDtoByUserName" resultType="com.lcl.galaxy.mybatis.common.dto.UserOrderDto2" parameterType="String">
+        SELECT order_info.*,
+          user.username, user.address,user.birthday,user.sex FROM user
+          LEFT JOIN order_info ON order_info.name = user.username where order_info.name = #{username}
+    </select>
+
+
+
+    <resultMap id="userOrderDtoMap" type="com.lcl.galaxy.mybatis.common.dto.UserOrderDto">
+        <result column="us" property="username"/>
+        <result column="address" property="address"/>
+        <result column="birthday" property="birthday"/>
+        <result column="sex" property="sex"/>
+        <association property="orderInfoDo" javaType="com.lcl.galaxy.mybatis.common.domain.OrderInfoDo">
+            <result column="name" property="name"/>
+            <result column="orderId" property="orderId"/>
+            <result column="payMoney" property="payMoney"/>
+            <result column="orderCreateTime" property="orderCreateTime"/>
+        </association>
+    </resultMap>
+
+    <select id="selectUserOrderDtoByUserName2" resultMap="userOrderDtoMap" parameterType="String">
+        SELECT order_info.*, user.username as us, user.address as address,user.birthday as birthday,user.sex as sex FROM user
+          LEFT JOIN order_info ON order_info.name = user.username where order_info.name = #{username}
+    </select>
+
+
+
+    <resultMap id="userOrdersDtoMap" type="com.lcl.galaxy.mybatis.common.dto.UserOrdersDto">
+        <result column="us" property="username"/>
+        <result column="address" property="address"/>
+        <result column="birthday" property="birthday"/>
+        <result column="sex" property="sex"/>
+        <collection property="orderInfoDoList"   ofType="com.lcl.galaxy.mybatis.common.domain.OrderInfoDo">
+            <result column="name" property="name"/>
+            <result column="orderId" property="orderId"/>
+            <result column="payMoney" property="payMoney"/>
+            <result column="orderCreateTime" property="orderCreateTime"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectUserOrdersDtoByUserName" resultMap="userOrdersDtoMap" parameterType="String">
+        SELECT order_info.*, user.username as us, user.address as address,user.birthday as birthday,user.sex as sex FROM user
+          LEFT JOIN order_info ON order_info.name = user.username where order_info.name = #{username}
+    </select>
+
+
+</mapper>
