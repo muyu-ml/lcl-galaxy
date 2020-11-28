@@ -14,12 +14,35 @@
     <properties>
         <property name="jdbc.username" value="*******"/>
     </properties>
-    
-
-    
     -->
 
-    <!--typeAliase标签使用方式-->
+    <!-- 懒加载
+     lazyLoadingEnabled：是否开启懒加载，true：开启，false：不开启，默认false
+     aggressiveLazyLoading：懒加载模式，ture为侵入式开关 false为深度延迟加载，默认false
+     -->
+    <settings>
+        <!-- 演示不开启懒加载 -->
+        <setting name="lazyLoadingEnabled" value="false"/>
+
+        <!-- 开启二级缓存总开关 -->
+        <setting name="cacheEnabled" value="true"/>
+        <!-- 演示侵入式懒加载 -->
+        <!--
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+        -->
+
+        <!-- 演示深度懒加载 -->
+        <!--
+       <setting name="lazyLoadingEnabled" value="true"/>
+       <setting name="aggressiveLazyLoading" value="false"/>
+       -->
+    </settings>
+
+
+
+
+        <!--typeAliase标签使用方式-->
     <typeAliases>
         <typeAlias type="com.lcl.galaxy.mybatis.common.domain.UserDo" alias="user"/>
     </typeAliases>

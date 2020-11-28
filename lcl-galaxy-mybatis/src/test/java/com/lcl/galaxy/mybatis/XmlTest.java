@@ -131,4 +131,60 @@ public class XmlTest {
             sqlSession.close();
         }
     }
+
+
+
+    @Test
+    public void testMybatisCache() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        try{
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            UserDo user = userMapper.findUserById(2);
+            log.info("user====[{}]",user);
+            UserDo user2 = userMapper.findUserById(2);
+            log.info("user2====[{}]",user2);
+            UserDo user3 = new UserDo();
+            user3.setUsername("test");
+            userMapper.insertUser(user2);
+            UserDo user4 = userMapper.findUserById(2);
+            log.info("user4====[{}]",user4);
+        }finally {
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testMybatisCache2() throws Exception {
+        SqlSession sqlSession1 = sqlSessionFactory.openSession();
+        UserMapper userMapper1 = sqlSession1.getMapper(UserMapper.class);
+        SqlSession sqlSession2 = sqlSessionFactory.openSession();
+        UserMapper userMapper2 = sqlSession2.getMapper(UserMapper.class);
+        SqlSession sqlSession3 = sqlSessionFactory.openSession();
+        UserMapper userMapper3 = sqlSession3.getMapper(UserMapper.class);
+        SqlSession sqlSession4 = sqlSessionFactory.openSession();
+        UserMapper userMapper4 = sqlSession4.getMapper(UserMapper.class);
+        UserDo user1 = userMapper1.findUserById(2);
+        log.info("==========================================================");
+        log.info("user1====[{}]",user1);
+        sqlSession1.close();
+
+
+        UserDo user2 = userMapper2.findUserById(2);
+        log.info("==========================================================");
+        log.info("user2====[{}]",user2);
+        sqlSession2.close();
+
+        UserDo user3 = new UserDo();
+        user3.setUsername("test2");
+        userMapper3.insertUser(user3);
+        sqlSession3.commit();
+        sqlSession3.close();
+        log.info("==========================================================");
+        log.info("user3====[{}]",user3);
+
+        UserDo user4 = userMapper4.findUserById(2);
+        log.info("==========================================================");
+        log.info("user4====[{}]",user4);
+        sqlSession4.close();
+    }
 }

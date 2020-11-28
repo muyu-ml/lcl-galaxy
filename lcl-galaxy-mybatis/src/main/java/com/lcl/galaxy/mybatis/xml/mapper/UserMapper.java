@@ -23,4 +23,7 @@ public interface UserMapper {
 
 
     List<UserOrdersDto> selectUserOrdersDtoByUserName(String name) throws Exception;
+
+
+    UserDo findUserByIdNoCache(int id) throws Exception;
 }
