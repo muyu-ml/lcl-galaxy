@@ -19,8 +19,8 @@
         <!--jdbc的数据库连接：驱动类、链接地址、用户名、密码-->
         <jdbcConnection
                 driverClass="com.mysql.cj.jdbc.Driver"
-                connectionURL="jdbc:mysql://jddb-cn-north-1-66feca82019b4cf8.jcloud.com:3306/ins_buying_0?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=true"
-                userId="ins_buying_d_rw"
+                connectionURL="jdbc:mysql://*********?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=true"
+                userId="**********"
                 password="5H5eLQsp6yO4">
             <property name="nullCatalogMeansCurrent" value="true"/>
         </jdbcConnection>
