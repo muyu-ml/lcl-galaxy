@@ -94,4 +94,48 @@
     <!-- 开启二级缓存 -->
     <cache flushInterval="30"/>
 
+
+
+    <sql id="base_column_list">
+        id,username,birthday,sex,address
+    </sql>
+
+    <select id="findUserList" parameterType="com.lcl.galaxy.mybatis.common.vo.QueryVo" resultType="user">
+        select * from user where 1=1
+        <if test="sex != null and sex != ''">
+            and sex = #{sex}
+        </if>
+        <foreach collection="addressList" item="addr" open=" and address in (" separator="," close=")" index="">
+            #{addr}
+        </foreach>
+    </select>
+
+    <select id="findUserList1" parameterType="com.lcl.galaxy.mybatis.common.vo.QueryVo" resultType="user">
+        select
+        <include refid="base_column_list"/>
+        from user where 1=1
+        <if test="sex != null and sex != ''">
+            and sex = #{sex}
+        </if>
+        <foreach collection="addressList" item="addr" open=" and address in (" separator="," close=")" index="">
+            #{addr}
+        </foreach>
+    </select>
+
+
+    <select id="findUserList2" parameterType="com.lcl.galaxy.mybatis.common.vo.QueryVo" resultType="user">
+        select
+        <include refid="base_column_list"/>
+        from user
+        <where>
+            <if test="sex != null and sex != ''">
+                and sex = #{sex}
+            </if>
+            <foreach collection="addressList" item="addr" open=" and address in (" separator="," close=")" index="">
+                #{addr}
+            </foreach>
+        </where>
+    </select>
+
+
 </mapper>

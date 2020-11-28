@@ -3,6 +3,7 @@ package com.lcl.galaxy.mybatis;
 import com.lcl.galaxy.mybatis.common.domain.UserDo;
 import com.lcl.galaxy.mybatis.common.dto.UserOrderDto;
 import com.lcl.galaxy.mybatis.common.dto.UserOrdersDto;
+import com.lcl.galaxy.mybatis.common.vo.QueryVo;
 import com.lcl.galaxy.mybatis.xml.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.io.Resources;
@@ -13,6 +14,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -186,5 +188,21 @@ public class XmlTest {
         log.info("==========================================================");
         log.info("user4====[{}]",user4);
         sqlSession4.close();
+    }
+
+    @Test
+    public void testDynamic(){
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        QueryVo queryVo = QueryVo.builder().sex("男").addressList(Arrays.asList("北京", "上海")).build();
+        List<UserDo> userList = mapper.findUserList(queryVo);
+        log.info("userList====[{}]",userList);
+
+        List<UserDo> userList1 = mapper.findUserList1(queryVo);
+        log.info("userList1====[{}]",userList1);
+
+        List<UserDo> userList2 = mapper.findUserList2(queryVo);
+        log.info("userList2====[{}]",userList2);
+        sqlSession.close();
     }
 }
