@@ -1,9 +1,9 @@
-package com.lcl.galaxy.mybatis.xml.mapper;
+package com.lcl.galaxy.mybatis.simple.mapper.xml;
 
-import com.lcl.galaxy.mybatis.common.domain.UserDo;
-import com.lcl.galaxy.mybatis.common.dto.UserOrderDto;
-import com.lcl.galaxy.mybatis.common.dto.UserOrdersDto;
-import com.lcl.galaxy.mybatis.common.vo.QueryVo;
+import com.lcl.galaxy.mybatis.simple.common.domain.UserDo;
+import com.lcl.galaxy.mybatis.simple.common.dto.UserOrderDto;
+import com.lcl.galaxy.mybatis.simple.common.dto.UserOrdersDto;
+import com.lcl.galaxy.mybatis.simple.common.vo.QueryVo;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
 package com.lcl.galaxy.mybatis;
 
-import com.lcl.galaxy.mybatis.common.domain.UserDo;
-import com.lcl.galaxy.mybatis.common.dto.UserOrderDto;
-import com.lcl.galaxy.mybatis.common.dto.UserOrdersDto;
-import com.lcl.galaxy.mybatis.common.vo.QueryVo;
-import com.lcl.galaxy.mybatis.xml.mapper.UserMapper;
+import com.lcl.galaxy.mybatis.simple.common.domain.UserDo;
+import com.lcl.galaxy.mybatis.simple.common.dto.UserOrderDto;
+import com.lcl.galaxy.mybatis.simple.common.dto.UserOrdersDto;
+import com.lcl.galaxy.mybatis.simple.common.vo.QueryVo;
+import com.lcl.galaxy.mybatis.simple.mapper.xml.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -15,7 +15,6 @@ import org.junit.Test;
 
 import java.io.InputStream;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 @Slf4j

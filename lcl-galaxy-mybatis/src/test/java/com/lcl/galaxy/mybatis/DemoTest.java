@@ -1,8 +1,8 @@
 package com.lcl.galaxy.mybatis;
 
-import com.lcl.galaxy.mybatis.common.domain.UserDo;
-import com.lcl.galaxy.mybatis.demo.dao.UserDao;
-import com.lcl.galaxy.mybatis.demo.dao.impl.UserDaoImpl;
+import com.lcl.galaxy.mybatis.simple.common.domain.UserDo;
+import com.lcl.galaxy.mybatis.simple.dao.UserDao;
+import com.lcl.galaxy.mybatis.simple.dao.impl.UserDaoImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;

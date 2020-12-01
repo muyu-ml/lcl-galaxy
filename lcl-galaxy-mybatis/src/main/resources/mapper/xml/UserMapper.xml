@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lcl.galaxy.mybatis.xml.mapper.UserMapper">
+<mapper namespace="com.lcl.galaxy.mybatis.simple.mapper.xml.UserMapper">
     <!-- 根据id获取用户信息 -->
     <select id="findUserById" parameterType="int" resultType="user">
         select * from user where id = #{id}
@@ -45,7 +45,7 @@
 
 
 
-    <select id="selectUserOrderDtoByUserName" resultType="com.lcl.galaxy.mybatis.common.dto.UserOrderDto2" parameterType="String">
+    <select id="selectUserOrderDtoByUserName" resultType="com.lcl.galaxy.mybatis.simple.common.dto.UserOrderDto2" parameterType="String">
         SELECT order_info.*,
           user.username, user.address,user.birthday,user.sex FROM user
           LEFT JOIN order_info ON order_info.name = user.username where order_info.name = #{username}
@@ -53,12 +53,12 @@
 
 
 
-    <resultMap id="userOrderDtoMap" type="com.lcl.galaxy.mybatis.common.dto.UserOrderDto">
+    <resultMap id="userOrderDtoMap" type="com.lcl.galaxy.mybatis.simple.common.dto.UserOrderDto">
         <result column="us" property="username"/>
         <result column="address" property="address"/>
         <result column="birthday" property="birthday"/>
         <result column="sex" property="sex"/>
-        <association property="orderInfoDo" javaType="com.lcl.galaxy.mybatis.common.domain.OrderInfoDo">
+        <association property="orderInfoDo" javaType="com.lcl.galaxy.mybatis.simple.common.domain.OrderInfoDo">
             <result column="name" property="name"/>
             <result column="orderId" property="orderId"/>
             <result column="payMoney" property="payMoney"/>
@@ -73,12 +73,12 @@
 
 
 
-    <resultMap id="userOrdersDtoMap" type="com.lcl.galaxy.mybatis.common.dto.UserOrdersDto">
+    <resultMap id="userOrdersDtoMap" type="com.lcl.galaxy.mybatis.simple.common.dto.UserOrdersDto">
         <result column="us" property="username"/>
         <result column="address" property="address"/>
         <result column="birthday" property="birthday"/>
         <result column="sex" property="sex"/>
-        <collection property="orderInfoDoList"   ofType="com.lcl.galaxy.mybatis.common.domain.OrderInfoDo">
+        <collection property="orderInfoDoList"   ofType="com.lcl.galaxy.mybatis.simple.common.domain.OrderInfoDo">
             <result column="name" property="name"/>
             <result column="orderId" property="orderId"/>
             <result column="payMoney" property="payMoney"/>
@@ -100,7 +100,7 @@
         id,username,birthday,sex,address
     </sql>
 
-    <select id="findUserList" parameterType="com.lcl.galaxy.mybatis.common.vo.QueryVo" resultType="user">
+    <select id="findUserList" parameterType="com.lcl.galaxy.mybatis.simple.common.vo.QueryVo" resultType="user">
         select * from user where 1=1
         <if test="sex != null and sex != ''">
             and sex = #{sex}
@@ -110,7 +110,7 @@
         </foreach>
     </select>
 
-    <select id="findUserList1" parameterType="com.lcl.galaxy.mybatis.common.vo.QueryVo" resultType="user">
+    <select id="findUserList1" parameterType="com.lcl.galaxy.mybatis.simple.common.vo.QueryVo" resultType="user">
         select
         <include refid="base_column_list"/>
         from user where 1=1
@@ -123,7 +123,7 @@
     </select>
 
 
-    <select id="findUserList2" parameterType="com.lcl.galaxy.mybatis.common.vo.QueryVo" resultType="user">
+    <select id="findUserList2" parameterType="com.lcl.galaxy.mybatis.simple.common.vo.QueryVo" resultType="user">
         select
         <include refid="base_column_list"/>
         from user

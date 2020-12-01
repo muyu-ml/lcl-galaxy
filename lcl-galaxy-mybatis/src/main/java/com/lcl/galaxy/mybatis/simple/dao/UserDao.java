@@ -1,6 +1,6 @@
-package com.lcl.galaxy.mybatis.demo.dao;
+package com.lcl.galaxy.mybatis.simple.dao;
 
-import com.lcl.galaxy.mybatis.common.domain.UserDo;
+import com.lcl.galaxy.mybatis.simple.common.domain.UserDo;
 
 import java.util.List;
 

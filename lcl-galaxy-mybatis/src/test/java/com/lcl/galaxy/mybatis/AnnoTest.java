@@ -1,7 +1,7 @@
 package com.lcl.galaxy.mybatis;
 
-import com.lcl.galaxy.mybatis.anno.mapper.UserAnnoMapper;
-import com.lcl.galaxy.mybatis.common.domain.UserDo;
+import com.lcl.galaxy.mybatis.simple.common.domain.UserDo;
+import com.lcl.galaxy.mybatis.simple.mapper.anno.UserAnnoMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;

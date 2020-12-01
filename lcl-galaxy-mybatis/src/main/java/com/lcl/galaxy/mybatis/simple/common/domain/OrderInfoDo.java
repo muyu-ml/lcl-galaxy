@@ -1,4 +1,4 @@
-package com.lcl.galaxy.mybatis.common.domain;
+package com.lcl.galaxy.mybatis.simple.common.domain;
 
 import lombok.Data;
 

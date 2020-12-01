@@ -44,7 +44,7 @@
 
         <!--typeAliase标签使用方式-->
     <typeAliases>
-        <typeAlias type="com.lcl.galaxy.mybatis.common.domain.UserDo" alias="user"/>
+        <typeAlias type="com.lcl.galaxy.mybatis.simple.common.domain.UserDo" alias="user"/>
     </typeAliases>
     <!--配置环境-->
     <environments default="mysql">
@@ -67,7 +67,7 @@
         <mapper resource="mapper/xml/UserMapper.xml"></mapper>
         <mapper resource="mapper/demo/UserMapper.xml"></mapper>
         <!-- 使用package加载package下所有的注解Mapper -->
-        <package name="com.lcl.galaxy.mybatis.anno.mapper"/>
+        <package name="com.lcl.galaxy.mybatis.simple.mapper.anno"/>
         <!--
         使用url加载本地文件
         <mapper url="file:///d://workSpace/selfWorkSpace/lcl-galaxy/lcl-galaxy-mybatis/src/main/resources/mapper/xml/UserMapper.xml"/>

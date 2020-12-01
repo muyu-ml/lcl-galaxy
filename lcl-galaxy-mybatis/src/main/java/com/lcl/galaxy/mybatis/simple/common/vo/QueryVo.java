@@ -1,4 +1,4 @@
-package com.lcl.galaxy.mybatis.common.vo;
+package com.lcl.galaxy.mybatis.simple.common.vo;
 
 import lombok.*;
 

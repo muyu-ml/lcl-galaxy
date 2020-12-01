@@ -1,3 +1,4 @@
+/*
 package com.lcl.galaxy.mybatis;
 
 import javax.security.auth.login.Configuration;
@@ -43,3 +44,4 @@ public class GeneTest {
     }
 }
 }
+*/

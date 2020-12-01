@@ -1,4 +1,4 @@
-package com.lcl.galaxy.mybatis.common.dto;
+package com.lcl.galaxy.mybatis.simple.common.dto;
 
 import lombok.Data;
 

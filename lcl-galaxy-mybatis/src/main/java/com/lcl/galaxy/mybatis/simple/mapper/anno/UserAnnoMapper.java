@@ -1,6 +1,6 @@
-package com.lcl.galaxy.mybatis.anno.mapper;
+package com.lcl.galaxy.mybatis.simple.mapper.anno;
 
-import com.lcl.galaxy.mybatis.common.domain.UserDo;
+import com.lcl.galaxy.mybatis.simple.common.domain.UserDo;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;

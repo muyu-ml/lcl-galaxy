@@ -1,7 +1,7 @@
-package com.lcl.galaxy.mybatis.common.dto;
+package com.lcl.galaxy.mybatis.simple.common.dto;
 
-import com.lcl.galaxy.mybatis.common.domain.OrderInfoDo;
-import com.lcl.galaxy.mybatis.common.domain.UserDo;
+import com.lcl.galaxy.mybatis.simple.common.domain.OrderInfoDo;
+import com.lcl.galaxy.mybatis.simple.common.domain.UserDo;
 import lombok.Data;
 import java.util.Date;
 
