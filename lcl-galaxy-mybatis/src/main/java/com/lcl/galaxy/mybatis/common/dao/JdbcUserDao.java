@@ -1,8 +1,6 @@
-package com.lcl.galaxy.mybatis.frame.dao;
+package com.lcl.galaxy.mybatis.common.dao;
 
 import com.lcl.galaxy.mybatis.simple.common.domain.UserDo;
-
-import java.util.List;
 
 public interface JdbcUserDao {
 

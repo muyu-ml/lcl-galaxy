@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lcltest">
+
+
+    <!-- 根据id获取用户信息 -->
+    <select id="findUser"
+            parameterType="com.lcl.galaxy.mybatis.simple.common.domain.UserDo"
+            resultType="com.lcl.galaxy.mybatis.simple.common.domain.UserDo"
+            statementType="PREPARED">
+        select * from user where id = #{id}
+        <if test="username != null and username != ''">
+            and username like '%${username}%'
+        </if>
+    </select>
+
+</mapper>

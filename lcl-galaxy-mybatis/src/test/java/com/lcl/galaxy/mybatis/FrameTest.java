@@ -1,32 +1,45 @@
 package com.lcl.galaxy.mybatis;
 
-import com.lcl.galaxy.mybatis.frame.dao.JdbcUserDao;
-import com.lcl.galaxy.mybatis.frame.dao.impl.JdbcUserDaoImpl;
+import com.lcl.galaxy.mybatis.common.dao.FrameUserDao;
+import com.lcl.galaxy.mybatis.common.dao.impl.FrameUserDaoImpl;
+import com.lcl.galaxy.mybatis.frame.config.MyConfiguration;
+import com.lcl.galaxy.mybatis.frame.config.MyXmlConfigParser;
+import com.lcl.galaxy.mybatis.frame.sqlsession.MySqlSessionFactory;
+import com.lcl.galaxy.mybatis.frame.sqlsession.MysessionFactorBuilder;
+import com.lcl.galaxy.mybatis.frame.util.DocumentUtils;
+import com.lcl.galaxy.mybatis.frame.config.MyResources;
 import com.lcl.galaxy.mybatis.simple.common.domain.UserDo;
-import com.lcl.galaxy.mybatis.simple.mapper.anno.UserAnnoMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.Before;
+import org.dom4j.Document;
 import org.junit.Test;
 
 import java.io.InputStream;
-import java.util.List;
 
 @Slf4j
 public class FrameTest {
 
 
     @Test
-    public void testJdbcFindUserById() throws Exception {
-        JdbcUserDao jdbcUserDao = new JdbcUserDaoImpl();
-        UserDo userDo = jdbcUserDao.findUserById(2);
-        log.info("userDo ========== 【{}】", userDo);
+    public void testFrame() throws Exception {
+        String resource = "FrameSqlMapConfig.xml";
+        InputStream inputStream = MyResources.getResourceAsStream(resource);
+        Document document = DocumentUtils.readInputStream(inputStream);
+        MyXmlConfigParser xmlConfigParser = new MyXmlConfigParser();
+        MyConfiguration configuration = xmlConfigParser.parse(document.getRootElement());
+        log.info("configuration=====【{}】", configuration);
     }
-    @Test
-    public void testFindUsersByName() throws Exception {
 
+    @Test
+    public void testFrameQuery() throws Exception {
+        UserDo userDo = new UserDo();
+        userDo.setId(1);
+        userDo.setUsername("lcl");
+        String resource = "FrameSqlMapConfig.xml";
+        MySqlSessionFactory mySqlSessionFactory = MysessionFactorBuilder.build(resource);
+        FrameUserDao frameUserDao = new FrameUserDaoImpl(mySqlSessionFactory);
+        UserDo user = frameUserDao.findUser(userDo);
+        log.info("user======【{}】", user);
     }
+
+
 }

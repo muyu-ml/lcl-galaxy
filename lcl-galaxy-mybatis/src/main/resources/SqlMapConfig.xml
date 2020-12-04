@@ -4,8 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <properties resource="db123.properties"></properties>
-
-
     <!--
      propertites标签使用方式
      方式一：使用resource加载外部配置文件
@@ -53,7 +51,7 @@
             <!-- 配置事务 -->
             <transactionManager type="JDBC"></transactionManager>
             <!--配置连接池-->
-            <dataSource type="POOLED">
+            <dataSource type="LCL">
                 <property name="driver" value="${jdbc.driver}"></property>
                 <property name="url" value="${jdbc.url}"></property>
                 <property name="username" value="${jdbc.username}"></property>

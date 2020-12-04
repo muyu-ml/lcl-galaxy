@@ -1,8 +1,8 @@
-package com.lcl.galaxy.mybatis.frame.dao;
+package com.lcl.galaxy.mybatis.common.dao;
 
 import com.lcl.galaxy.mybatis.simple.common.domain.UserDo;
 
 public interface FrameUserDao {
 
-    UserDo findUserById(int id) throws Exception;
+    UserDo findUser(UserDo userDo) throws Exception;
 }

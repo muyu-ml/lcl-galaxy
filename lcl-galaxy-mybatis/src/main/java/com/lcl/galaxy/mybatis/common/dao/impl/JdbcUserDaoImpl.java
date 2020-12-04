@@ -1,6 +1,6 @@
-package com.lcl.galaxy.mybatis.frame.dao.impl;
+package com.lcl.galaxy.mybatis.common.dao.impl;
 
-import com.lcl.galaxy.mybatis.frame.dao.JdbcUserDao;
+import com.lcl.galaxy.mybatis.common.dao.JdbcUserDao;
 import com.lcl.galaxy.mybatis.simple.common.domain.UserDo;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
