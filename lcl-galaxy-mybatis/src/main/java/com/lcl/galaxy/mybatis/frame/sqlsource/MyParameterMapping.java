@@ -1,7 +1,13 @@
 package com.lcl.galaxy.mybatis.frame.sqlsource;
 
-public class MyParameterMapping {
-    public MyParameterMapping(String content) {
+import lombok.Data;
 
+@Data
+public class MyParameterMapping {
+
+    private String name;
+
+    public MyParameterMapping(String content) {
+        this.name = content;
     }
 }

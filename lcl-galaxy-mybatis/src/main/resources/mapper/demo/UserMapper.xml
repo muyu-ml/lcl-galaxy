@@ -8,9 +8,9 @@
         select * from user where id = #{id}
     </select>
     <!-- 根据名称模糊查询用户列表 -->
-    <select id="findUserByUsername" parameterType="java.lang.String" resultType="com.lcl.galaxy.mybatis.simple.common.domain.UserDo">
-        <!-- select * from user where username like '%${value}%  -->
-        select * from user where username like CONCAT('%',#{name},'%')
+    <select id="findUserByUsername" parameterType="com.lcl.galaxy.mybatis.simple.common.domain.UserDo" resultType="com.lcl.galaxy.mybatis.simple.common.domain.UserDo">
+         select * from user where username like '%${username}%'
+        <!--select * from user where username like CONCAT('%',#{name},'%')-->
     </select>
 
 </mapper>

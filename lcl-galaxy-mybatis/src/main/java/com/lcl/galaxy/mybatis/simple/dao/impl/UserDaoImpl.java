@@ -32,10 +32,12 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<UserDo> findUsersByName(String name) throws Exception {
+        UserDo userDo = new UserDo();
+        userDo.setUsername(name);
         SqlSession sqlSession = this.sqlSessionFactory.openSession();
         List<UserDo> userDoList = null;
         try{
-            userDoList = sqlSession.selectList("test.findUserByUsername",name);
+            userDoList = sqlSession.selectList("test.findUserByUsername",userDo);
         }finally {
             sqlSession.close();
         }

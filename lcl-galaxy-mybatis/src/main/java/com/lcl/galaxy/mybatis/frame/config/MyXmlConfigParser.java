@@ -52,15 +52,15 @@ public class MyXmlConfigParser {
         BasicDataSource dataSource = new BasicDataSource();
         Element dataSourceElement = element.element("dataSource");
         String type = dataSourceElement.attributeValue("type");
-        type = type == null || type.equals("") ? "LCL":type;
-        if (type.equals("LCL")){
+        type = type == null || type.equals("") ? "POOLED":type;
+        if (type.equals("POOLED")){
             properties = parseProperties(dataSourceElement);
             dataSource.setDriverClassName(properties.getProperty("driver"));
             dataSource.setUrl(properties.getProperty("url"));
             dataSource.setUsername(properties.getProperty("username"));
             dataSource.setPassword(properties.getProperty("password"));
         }
-        myConfiguration.setBasicDataSource(dataSource);
+        myConfiguration.setDataSource(dataSource);
     }
 
     private Properties parseProperties(Element dataSourceElement) {

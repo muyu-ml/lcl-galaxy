@@ -12,7 +12,10 @@
             statementType="PREPARED">
         select * from user where id = #{id}
         <if test="username != null and username != ''">
-            and username like '%${username}%'
+            and username = #{username}
+            <if test="sex != null and sex != ''">
+                and sex = #{sex}
+            </if>
         </if>
     </select>
 

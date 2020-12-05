@@ -32,7 +32,7 @@ public class FrameTest {
     @Test
     public void testFrameQuery() throws Exception {
         UserDo userDo = new UserDo();
-        userDo.setId(1);
+        userDo.setId(2);
         userDo.setUsername("lcl");
         String resource = "FrameSqlMapConfig.xml";
         MySqlSessionFactory mySqlSessionFactory = MysessionFactorBuilder.build(resource);

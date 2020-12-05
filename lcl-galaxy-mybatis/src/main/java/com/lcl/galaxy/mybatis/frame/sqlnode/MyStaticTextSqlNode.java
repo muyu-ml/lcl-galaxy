@@ -14,6 +14,6 @@ public class MyStaticTextSqlNode implements MySqlNode {
     @Override
     public void apply(MyDynamicContext context) {
 
-        context.appendSql(sql);
+        context.appendSql(" " + sql);
     }
 }
