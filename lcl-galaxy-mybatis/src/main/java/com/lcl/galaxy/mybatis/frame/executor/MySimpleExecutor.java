@@ -26,7 +26,7 @@ public class MySimpleExecutor extends MyBaseExecutor{
                 PreparedStatement preparedStatement = createStatement(connection, myBoundSql);
                 handlerParamter(preparedStatement, myBoundSql, param);
                 log.info("sql语句：{}", myBoundSql.getSql());
-                ResultSet resultSet = preparedStatement.executeQuery(myBoundSql.getSql());
+                ResultSet resultSet = preparedStatement.executeQuery();
                 handleResult(resultList, myMappedStatement, resultSet);
             }
         }catch (Exception e){
