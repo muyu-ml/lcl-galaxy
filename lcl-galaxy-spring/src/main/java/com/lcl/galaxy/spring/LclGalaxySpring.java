@@ -9,9 +9,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class LclGalaxySpring {
 
     public static void main(String[] args) {
-        ApplicationContext factory=new ClassPathXmlApplicationContext("classpath:spring-config.xml");
-        UserApis userApis = new UserApis();
-        userApis.getUser();
+        //ApplicationContext factory1=new ClassPathXmlApplicationContext("classpath:spring-config1.xml");
+        ApplicationContext factory2=new ClassPathXmlApplicationContext("classpath:spring-config2.xml");
+
         log.info("==============");
     }
+
 }

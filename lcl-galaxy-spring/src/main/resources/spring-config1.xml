@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userService" class="com.lcl.galaxy.spring.service.impl.UserServiceImpl"/>
+
+    <bean id="userService2" class="com.lcl.galaxy.spring.factory.StaticFactory" factory-method="createUserService"/>
+
+    <bean id="instanceFactory" class="com.lcl.galaxy.spring.factory.InstanceFactory"/>
+    <bean id="userService3" factory-bean="instanceFactory" factory-method="createUserService"/>
+
+    <bean id="userService4" class="com.lcl.galaxy.spring.service.impl.UserServiceImpl">
+        <constructor-arg name="id" value="1"/>
+        <constructor-arg name="name" value="lcl"/>
+    </bean>
+
+    <bean id="userService5" class="com.lcl.galaxy.spring.service.impl.UserServiceImpl">
+        <property name="id" value="1"/>
+        <property name="name" value="lcl"/>
+    </bean>
+
+
+    <bean id="userDao" class="com.lcl.galaxy.spring.dao.UserDao"/>
+    <bean id="userService6" class="com.lcl.galaxy.spring.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+
+    <bean id="collectionDto" class="com.lcl.galaxy.spring.dto.CollectionDto">
+        <property name="nameList">
+            <list>
+                <value>lcl</value>
+                <value>qmm</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="collectionDto2" class="com.lcl.galaxy.spring.dto.CollectionDto">
+        <property name="nameList">
+            <set>
+                <value>lcl</value>
+                <value>qmm</value>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="collectionDto3" class="com.lcl.galaxy.spring.dto.CollectionDto">
+        <property name="nameMap">
+            <map>
+                <entry key="lcl" value="18"/>
+                <entry key="qmm" value="15"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="collectionDto4" class="com.lcl.galaxy.spring.dto.CollectionDto">
+        <property name="properties">
+            <props>
+                <prop key="lcl">21</prop>
+                <prop key="qmm">18</prop>
+            </props>
+        </property>
+    </bean>
+</beans>
