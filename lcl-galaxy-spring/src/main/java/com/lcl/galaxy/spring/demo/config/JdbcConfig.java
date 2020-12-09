@@ -1,4 +1,4 @@
-package com.lcl.galaxy.spring.config;
+package com.lcl.galaxy.spring.demo.config;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import lombok.extern.slf4j.Slf4j;

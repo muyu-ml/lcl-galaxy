@@ -1,4 +1,4 @@
-package com.lcl.galaxy.spring.service.impl;
+package com.lcl.galaxy.spring.demo;
 
 import com.lcl.galaxy.spring.dao.UserDao;
 import com.lcl.galaxy.spring.domain.UserDo;

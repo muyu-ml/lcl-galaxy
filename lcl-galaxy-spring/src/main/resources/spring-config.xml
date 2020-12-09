@@ -11,5 +11,6 @@
     http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
     <context:component-scan base-package="com.lcl.galaxy.spring.aop"/>
-    <import resource="spring-config1.xml"/>
+    <bean name="myAdvice" class="com.lcl.galaxy.spring.aop.advice.MyAdvice"/>
+
 </beans>

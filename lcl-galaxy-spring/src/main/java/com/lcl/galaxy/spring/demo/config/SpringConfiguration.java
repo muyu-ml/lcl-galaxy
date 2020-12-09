@@ -1,4 +1,4 @@
-package com.lcl.galaxy.spring.config;
+package com.lcl.galaxy.spring.demo.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.defaults.DefaultSqlSessionFactory;

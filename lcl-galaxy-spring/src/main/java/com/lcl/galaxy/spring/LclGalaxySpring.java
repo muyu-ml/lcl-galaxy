@@ -1,12 +1,10 @@
 package com.lcl.galaxy.spring;
 
-import com.lcl.galaxy.spring.apis.UserApis;
-import com.lcl.galaxy.spring.config.JdbcConfig;
-import com.lcl.galaxy.spring.config.SpringConfiguration;
+import com.lcl.galaxy.spring.demo.config.JdbcConfig;
+import com.lcl.galaxy.spring.demo.config.SpringConfiguration;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 @Slf4j
 public class LclGalaxySpring {
