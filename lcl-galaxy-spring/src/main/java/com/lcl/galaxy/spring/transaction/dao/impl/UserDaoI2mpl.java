@@ -1,20 +1,13 @@
 package com.lcl.galaxy.spring.transaction.dao.impl;
 
 import com.lcl.galaxy.spring.transaction.dao.UserDao;
+import com.lcl.galaxy.spring.transaction.dao.UserDao2;
 import com.lcl.galaxy.spring.transaction.domain.UserDo;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.sql.DataSource;
-import java.util.List;
 
 @Slf4j
-@Data
-public class UserDaoImpl implements UserDao {
+public class UserDaoI2mpl implements UserDao2 {
 
-    @Autowired
-    private DataSource dataSource;
 
     @Override
     public void insert(UserDo userDo) {
