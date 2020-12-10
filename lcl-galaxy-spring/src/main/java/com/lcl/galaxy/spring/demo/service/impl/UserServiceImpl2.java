@@ -1,6 +1,6 @@
 package com.lcl.galaxy.spring.service.impl;
 
-import com.lcl.galaxy.spring.service.UserService2;
+import com.lcl.galaxy.spring.demo.UserService2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

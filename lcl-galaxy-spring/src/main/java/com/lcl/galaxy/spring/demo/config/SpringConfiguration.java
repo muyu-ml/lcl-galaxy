@@ -8,6 +8,7 @@ import org.springframework.context.annotation.*;
 @Slf4j
 @ComponentScan(basePackages = "com.lcl.galaxy.spring")
 @Import(JdbcConfig.class)
+@EnableAspectJAutoProxy
 public class SpringConfiguration {
 
     public SpringConfiguration(){

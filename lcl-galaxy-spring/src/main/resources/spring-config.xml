@@ -3,14 +3,43 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
     http://www.springframework.org/schema/mvc
     http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
     http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+    http://www.springframework.org/schema/context/spring-context-4.2.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+
+
 
     <context:component-scan base-package="com.lcl.galaxy.spring.aop"/>
     <bean name="myAdvice" class="com.lcl.galaxy.spring.aop.advice.MyAdvice"/>
+    <aop:config>
+        <aop:aspect ref="myAdvice">
+            <!-- 详细写法 -->
+            <!--   <aop:before method="log" pointcut="execution(public void com.lcl.galaxy.spring.aop.service.UserServiceImpl.insert())"/>  -->
+            <!-- 省略execution写法-->
+            <!-- <aop:before method="log" pointcut="execution(void com.lcl.galaxy.spring.aop.service.UserServiceImpl.insert())"/> -->
+            <!-- 一层包名使用*写法 -->
+            <!--<aop:before method="log" pointcut="execution(void com.lcl.galaxy.spring.aop.*.UserServiceImpl.insert())"/>-->
+            <!-- 多层包名省略写法-->
+            <!-- <aop:before method="log" pointcut="execution(void com.lcl.galaxy..insert())"/>-->
+            <!-- 类名使用*写法-->
+            <!-- <aop:before method="log" pointcut="execution(void com.lcl.galaxy.spring.aop.service.*Impl.insert())"/>-->
+            <!-- 方法名使用*写法-->
+            <!-- <aop:before method="log" pointcut="execution(void com.lcl.galaxy.spring.aop.service.*Impl.insert*())"/>-->
+
+            <!-- 方法名使用*写法-->
+            <!-- <aop:before method="log" pointcut="execution(void com.lcl.galaxy.spring.aop.service.*Impl.insert*())"/>-->
+
+            <!-- 方法名使用*写法-->
+            <aop:before method="log" pointcut="execution(void com.lcl.galaxy.spring.aop.service.UserServiceImpl.insert(..))"/>
+        </aop:aspect>
+    </aop:config>
 
 </beans>
