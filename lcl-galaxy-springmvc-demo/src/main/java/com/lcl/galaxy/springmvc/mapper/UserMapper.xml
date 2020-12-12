@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lcl.galaxy.springmvc.mapper.UserMapper">
+    <!-- 根据名称模糊查询用户列表 -->
+    <select id="findUsersByName" parameterType="String" resultType="com.lcl.galaxy.springmvc.domain.UserDo">
+         select * from user where username = #{username}
+    </select>
+
+</mapper>
