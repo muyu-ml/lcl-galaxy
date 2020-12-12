@@ -2,15 +2,15 @@
          pageEncoding="UTF-8" %>
 <html>
     <head>
-        <title>这是HELLO 页面</title>
+        <title>这是 转发测试 页面</title>
     </head>
     <body>
-        这是HELLO 页面
+        这是  转发测试   页面
         <br/>
         =========================
         <br/>
         ==========================
         <br/>
-        ${user}
+
     </body>
 </html>
