@@ -1,17 +1,14 @@
 package com.lcl.galaxy.springmvc.controller;
 
 import com.lcl.galaxy.springmvc.domain.UserDo;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+import com.lcl.galaxy.springmvc.dto.OrderInfoDto;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.UUID;
 
 @RequestMapping("/request")
 @RestController
@@ -37,6 +34,31 @@ public class RequestController {
     @RequestMapping("strArray")
     public String strArray(String[] arrs){
         return returnStr;
+    }
+
+
+    @RequestMapping("date")
+    public String date(LocalDate dateStr){
+        return "获取的日期是" + dateStr;
+    }
+
+
+    @PostMapping("order")
+    public String order(@RequestBody OrderInfoDto orderInfoDto){
+        return "获取的日期是" + orderInfoDto;
+    }
+
+    @RequestMapping("upload")
+    public String upLoad(MultipartFile file) throws IOException {
+        if (file != null){
+            String originalFilename = file.getOriginalFilename();
+            String picPath = "";
+            String extName = originalFilename.substring(originalFilename.lastIndexOf("."));
+            String newName = UUID.randomUUID() + extName;
+            File newFile = new File(newName + "." + extName);
+            file.transferTo(newFile);
+        }
+        return "OK";
     }
 
 }

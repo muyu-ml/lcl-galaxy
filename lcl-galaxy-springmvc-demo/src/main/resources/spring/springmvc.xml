@@ -10,14 +10,42 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="com.lcl.galaxy.spring.controller"/>
-
-    <mvc:annotation-driven/>
+    <context:component-scan base-package="com.lcl.galaxy.springmvc.controller"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+    <mvc:interceptors>
+        <bean class="com.lcl.galaxy.springmvc.interceptor.MyHandlerInterceptor"/>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.lcl.galaxy.springmvc.interceptor.MyHandlerInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <mvc:annotation-driven/>
+
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+    <mvc:cors>
+        <mvc:mapping path="/**"/>
+    </mvc:cors>
+
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="com.lcl.galaxy.springmvc.utils.DateConverter"/>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="5242880"/>
+    </bean>
+
+
 
 
 
