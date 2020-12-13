@@ -28,6 +28,7 @@ public class ResultController {
         return new ModelAndView("hello","user",str);
     }
 
+
     @RequestMapping("/http")
     public void getStr(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setCharacterEncoding("utf-8");

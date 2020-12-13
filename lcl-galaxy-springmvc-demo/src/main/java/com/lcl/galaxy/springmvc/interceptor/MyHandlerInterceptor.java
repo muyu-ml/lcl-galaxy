@@ -13,7 +13,7 @@ public class MyHandlerInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String requestURI = request.getRequestURI();
+        /*String requestURI = request.getRequestURI();
         log.info("requestURI={}", requestURI);
         if(requestURI.indexOf("login") > -1){
             return true;
@@ -23,7 +23,8 @@ public class MyHandlerInterceptor implements HandlerInterceptor {
             return true;
         }
         response.sendRedirect("login.jsp");
-        return false;
+        return false;*/
+        return true;
     }
 
     @Override

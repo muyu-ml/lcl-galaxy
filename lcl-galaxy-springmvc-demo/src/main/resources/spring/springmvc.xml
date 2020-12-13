@@ -45,6 +45,8 @@
         <property name="maxUploadSize" value="5242880"/>
     </bean>
 
+    <bean class="com.lcl.galaxy.springmvc.exception.MyExceptionResolver"/>
+
 
 
 
