@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="spring-mvc-demo:war exploded">
-    <output-path>$PROJECT_DIR$/lcl-galaxy-springmvc-demo/target/spring-mvc-demo-0.0.1-SNAPSHOT</output-path>
+    <output-path>$PROJECT_DIR$/lcl-galaxy-springmvc-demo/target/lcl-galaxy-spring-mvc-demo-0.0.1-SNAPSHOT</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="spring-mvc-demo" />
+          <element id="module-output" name="lcl-galaxy-springmvc-demo" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.3.1" />
@@ -34,7 +34,7 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.6" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.6" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-test:5.3.1" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-test:5.0.7.RELEASE" />
           <element id="library" level="project" name="Maven: junit:junit:4.12" />
           <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
           <element id="library" level="project" name="Maven: com.jayway.jsonpath:json-path:2.2.0" />
@@ -47,9 +47,9 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/lcl-galaxy-springmvc-demo/target/spring-mvc-demo-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/lcl-galaxy-springmvc-demo/target/lcl-galaxy-spring-mvc-demo-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="spring-mvc-demo/web/Web" />
+      <element id="javaee-facet-resources" facet="lcl-galaxy-springmvc-demo/web/Web" />
     </root>
   </artifact>
 </component>
