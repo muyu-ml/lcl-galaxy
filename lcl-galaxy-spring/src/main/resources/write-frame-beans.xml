@@ -1,0 +1,17 @@
+<beans>
+
+    <bean id="userService" class="com.lcl.galaxy.spring.frame.service.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+
+    <bean id="userDao" class="com.lcl.galaxy.spring.frame.dao.UserDaoImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://********:3306/ins_buying_0"/>
+        <property name="username" value="******"/>
+        <property name="password" value="*******"/>
+    </bean>
+</beans>
