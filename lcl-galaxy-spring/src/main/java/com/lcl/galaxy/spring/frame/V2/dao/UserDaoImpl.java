@@ -1,6 +1,6 @@
-package com.lcl.galaxy.spring.frame.dao;
+package com.lcl.galaxy.spring.frame.V2.dao;
 
-import com.lcl.galaxy.spring.frame.domain.UserDo;
+import com.lcl.galaxy.spring.frame.V2.domain.UserDo;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import lombok.Data;

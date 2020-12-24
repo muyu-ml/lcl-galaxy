@@ -1,7 +1,7 @@
-package com.lcl.galaxy.spring.frame.service;
+package com.lcl.galaxy.spring.frame.V2.service;
 
-import com.lcl.galaxy.spring.frame.dao.UserDao;
-import com.lcl.galaxy.spring.frame.domain.UserDo;
+import com.lcl.galaxy.spring.frame.V2.dao.UserDao;
+import com.lcl.galaxy.spring.frame.V2.domain.UserDo;
 import lombok.Data;
 
 @Data

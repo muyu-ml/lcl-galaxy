@@ -1,12 +1,16 @@
 package com.lcl.galaxy.spring;
 
 
-import com.lcl.galaxy.spring.frame.apis.UserApis;
-import com.lcl.galaxy.spring.frame.apis.UserApisV2;
-import com.lcl.galaxy.spring.frame.dao.UserDao;
-import com.lcl.galaxy.spring.frame.dao.UserDaoImpl;
-import com.lcl.galaxy.spring.frame.service.UserService;
-import com.lcl.galaxy.spring.frame.service.UserServiceImpl;
+import com.lcl.galaxy.spring.frame.V2.apis.UserApis;
+import com.lcl.galaxy.spring.frame.V2.apis.UserApisV2;
+import com.lcl.galaxy.spring.frame.V2.dao.UserDao;
+import com.lcl.galaxy.spring.frame.V2.dao.UserDaoImpl;
+import com.lcl.galaxy.spring.frame.V2.service.UserService;
+import com.lcl.galaxy.spring.frame.V2.service.UserServiceImpl;
+import com.lcl.galaxy.spring.frame.V3.apis.SpringIocFrame;
+import com.lcl.galaxy.spring.frame.V3.beanfactory.MyBeanFactory;
+import com.lcl.galaxy.spring.frame.V3.beanfactory.support.MyDefaultListableBeanFactory;
+import com.lcl.galaxy.spring.frame.V3.register.MyBeanDefinitionRegisty;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.Test;
 
@@ -33,5 +37,13 @@ public class FrameTest {
         UserApisV2 userApisV2 = new UserApisV2();
         userApisV2.init();
         userApisV2.findUserById("2");
+    }
+
+
+    @Test
+    public void writeFrameV3() throws Exception {
+        SpringIocFrame frame = new SpringIocFrame();
+        MyDefaultListableBeanFactory beanFactory = frame.init();
+        frame.findUserById("2", beanFactory);
     }
 }

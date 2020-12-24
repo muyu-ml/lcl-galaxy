@@ -1,4 +1,4 @@
-package com.lcl.galaxy.spring.frame.domain;
+package com.lcl.galaxy.spring.frame.V2.domain;
 
 import lombok.Data;
 
@@ -16,7 +16,7 @@ public class MyBeanDefinition {
 
     private String initMethod;
 
-    List<MyPropertyValue> propertyValueList = new ArrayList<>();
+    private List<MyPropertyValue> propertyValueList = new ArrayList<>();
 
     private final String SCOPE_SINGLETON = "singleton";
     private final String SCOPE_PROTOTYPE = "prototype";

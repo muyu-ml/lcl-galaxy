@@ -1,66 +1,31 @@
-package com.lcl.galaxy.spring.frame.apis;
+package com.lcl.galaxy.spring.frame.V3.reader;
 
-import com.lcl.galaxy.spring.frame.domain.*;
-import com.lcl.galaxy.spring.frame.service.UserService;
-import lombok.Data;
+import com.lcl.galaxy.spring.frame.V2.domain.MyBeanDefinition;
+import com.lcl.galaxy.spring.frame.V2.domain.MyPropertyValue;
+import com.lcl.galaxy.spring.frame.V2.domain.MyRuntimeBeanReference;
+import com.lcl.galaxy.spring.frame.V2.domain.MyTypedStringValue;
+import com.lcl.galaxy.spring.frame.V3.register.MyBeanDefinitionRegisty;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections.map.HashedMap;
-import org.dom4j.Document;
 import org.dom4j.Element;
-import org.dom4j.io.SAXReader;
 
-import java.io.InputStream;
 import java.lang.reflect.Field;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
-@Data
-public class UserApisV2 {
-
-    private Map<String, Object> singletonObjects = new HashMap<>();
-    private Map<String, MyBeanDefinition> beanDefinitions = new HashedMap();
-
-    public void findUserById(String id) throws Exception {
-        UserService userService = (UserService) getBean("userService");
-        UserDo userDo = userService.findUserById(id);
-        log.info("=================={}=================", userDo);
+public class MyXmlBeanDefinitionDocumentReader {
+    
+    private MyBeanDefinitionRegisty registy;
+    
+    public MyXmlBeanDefinitionDocumentReader(MyBeanDefinitionRegisty registy) {
+        super();
+        this.registy = registy;
     }
 
-    private Object getBean(String beanName) {
-        Object object = singletonObjects.get(beanName);
-        if (object != null) {
-            return object;
-        }
-
-        MyBeanDefinition beanDefinition = beanDefinitions.get(beanName);
-        if (beanDefinition == null || beanDefinition.getClazzName() == null) {
-            return null;
-        }
-
-        if (beanDefinition.isSingleton()) {
-            object = createBean(beanDefinition);
-            this.singletonObjects.put(beanName, object);
-        } else if (beanDefinition.isPrototype()) {
-            object = createBean(beanDefinition);
-        }
-        return object;
-    }
-
-    private Object createBean(MyBeanDefinition beanDefinition) {
-        return null;
-    }
-
-
-    public void init() {
-        String location = "";
-        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(location);
-        Document document = createDocument(inputStream);
-        registerBeanDefinition(document.getRootElement());
-    }
-
-    private void registerBeanDefinition(Element rootElement) {
+    /**
+     * 按照spring标签语义进行解析
+     * @param rootElement
+     */
+    public void loadBeanDefinitions(Element rootElement) {
         List<Element> elements = rootElement.elements();
         for (Element element : elements) {
             String name = element.getName();
@@ -72,9 +37,18 @@ public class UserApisV2 {
         }
     }
 
+
+    /**
+     * 解析自定义标签
+     * @param element
+     */
     private void parseCustomElement(Element element) {
     }
 
+    /**
+     * 解析bean标签，封装为Bedefinition，并将BeanDefinition放入map中
+     * @param beanElement
+     */
     private void parseDefaultElement(Element beanElement) {
         if (beanElement == null) {
             return;
@@ -102,12 +76,17 @@ public class UserApisV2 {
             for (Element propertyElement : propertyElements) {
                 parsePropertyElement(beanDefinition, propertyElement);
             }
-            beanDefinitions.put(beanName, beanDefinition);
+            this.registy.registry(beanName, beanDefinition);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * 为BeanDefinition的property集合赋值
+     * @param beanDefinition
+     * @param propertyElement
+     */
     private void parsePropertyElement(MyBeanDefinition beanDefinition, Element propertyElement) {
         String name = propertyElement.attributeValue("name");
         String value = propertyElement.attributeValue("value");
@@ -131,25 +110,21 @@ public class UserApisV2 {
         }
     }
 
+    /**
+     * 获取简单类型
+     * @param clazzName
+     * @param name
+     * @return
+     */
     private Class<?> getTypeFieldName(String clazzName, String name) {
         try {
             Class<?> clazz = Class.forName(clazzName);
-            Field field = clazz.getField(name);
+            Field field = clazz.getDeclaredField(name);
             return field.getType();
         } catch (Exception e) {
+            log.info("================== clazzName,name ====================,{}==========,{}",clazzName, name);
             e.printStackTrace();
         }
         return null;
-    }
-
-    private Document createDocument(InputStream inputStream) {
-        Document document = null;
-        SAXReader saxReader = new SAXReader();
-        try {
-            document = saxReader.read(inputStream);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return document;
     }
 }
