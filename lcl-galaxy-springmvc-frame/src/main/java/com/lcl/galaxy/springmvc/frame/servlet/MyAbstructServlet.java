@@ -13,7 +13,7 @@ public abstract class MyAbstructServlet extends HttpServlet {
         doDispatch(req, resp);
     }
 
-    protected abstract void doDispatch(HttpServletRequest req, HttpServletResponse resp) ;
+    protected abstract void doDispatch(HttpServletRequest req, HttpServletResponse resp) throws IOException;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
