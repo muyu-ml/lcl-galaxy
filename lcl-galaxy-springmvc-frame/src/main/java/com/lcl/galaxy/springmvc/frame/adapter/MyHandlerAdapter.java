@@ -5,5 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public interface MyHandlerAdapter {
-    public void handleRequest(Object handler, HttpServletRequest request, HttpServletResponse response) throws IOException;
+    void handleRequest(Object handler, HttpServletRequest request, HttpServletResponse response) throws IOException;
+
+    boolean support(Object handler);
 }

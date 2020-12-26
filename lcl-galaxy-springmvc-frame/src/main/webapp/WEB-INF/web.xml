@@ -7,7 +7,7 @@
         <description></description>
         <display-name>MyServlet</display-name>
         <servlet-name>MyServlet</servlet-name>
-        <servlet-class>com.lcl.galaxy.springmvc.frame.servlet.MyServlet</servlet-class>
+        <servlet-class>com.lcl.galaxy.springmvc.frame.dispatcher.MyServlet</servlet-class>
 
     </servlet>
     <servlet-mapping>
@@ -18,7 +18,12 @@
 
     <servlet>
         <servlet-name>MyDispatcherServlet</servlet-name>
-        <servlet-class>com.lcl.galaxy.springmvc.frame.servlet.MyDispatcherServlet</servlet-class>
+        <servlet-class>com.lcl.galaxy.springmvc.frame.dispatcher.MyDispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:springmvc.xml</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>MyDispatcherServlet</servlet-name>

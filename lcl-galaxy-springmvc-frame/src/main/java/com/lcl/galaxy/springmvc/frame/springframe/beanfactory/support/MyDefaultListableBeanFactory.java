@@ -1,18 +1,17 @@
-package com.lcl.galaxy.spring.frame.V3.beanfactory.support;
+package com.lcl.galaxy.springmvc.frame.springframe.beanfactory.support;
 
-import com.lcl.galaxy.spring.frame.V2.domain.MyBeanDefinition;
-import com.lcl.galaxy.spring.frame.V3.register.MyBeanDefinitionRegisty;
-import com.lcl.galaxy.spring.frame.V3.utils.ReflectUtils;
-import org.apache.commons.collections.map.HashedMap;
+import com.lcl.galaxy.springmvc.frame.springframe.domain.MyBeanDefinition;
+import com.lcl.galaxy.springmvc.frame.springframe.register.MyBeanDefinitionRegisty;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class MyDefaultListableBeanFactory extends MyAbstructAutowireCapableBeanFactory implements MyBeanDefinitionRegisty {
 
 
-    private Map<String, MyBeanDefinition> beanDefinitions = new HashedMap();
+    private Map<String, MyBeanDefinition> beanDefinitions = new HashMap<>();
 
     @Override
     public void registry(String beanName, MyBeanDefinition beanDefinition) {

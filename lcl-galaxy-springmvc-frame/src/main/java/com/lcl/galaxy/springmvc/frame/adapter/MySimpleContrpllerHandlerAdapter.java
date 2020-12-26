@@ -11,4 +11,9 @@ public class MySimpleContrpllerHandlerAdapter implements MyHandlerAdapter {
         MySimpleControllerHandler simpleControllerHandler = (MySimpleControllerHandler) handler;
         simpleControllerHandler.handlerRequest(request, response);
     }
+
+    @Override
+    public boolean support(Object handler) {
+        return handler instanceof MySimpleContrpllerHandlerAdapter;
+    }
 }

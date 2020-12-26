@@ -12,4 +12,9 @@ public class MyHttpRequestHandlerAdapter implements MyHandlerAdapter {
         MyHttpRequestHandler httpRequestHandler = (MyHttpRequestHandler) handler;
         httpRequestHandler.handleRequest(request, response);
     }
+
+    @Override
+    public boolean support(Object handler) {
+        return handler instanceof  MyHttpRequestHandlerAdapter;
+    }
 }

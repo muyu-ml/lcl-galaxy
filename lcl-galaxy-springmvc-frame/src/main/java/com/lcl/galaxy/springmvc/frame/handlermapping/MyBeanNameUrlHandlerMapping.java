@@ -1,9 +1,9 @@
 package com.lcl.galaxy.springmvc.frame.handlermapping;
 
-import com.lcl.galaxy.spring.frame.V3.aware.MyBeanFactoryAware;
-import com.lcl.galaxy.spring.frame.V3.beanfactory.MyBeanFactory;
 import com.lcl.galaxy.springmvc.frame.handler.QueryUserHandler;
 import com.lcl.galaxy.springmvc.frame.handler.SaveUserHandler;
+import com.lcl.galaxy.springmvc.frame.springframe.aware.MyBeanFactoryAware;
+import com.lcl.galaxy.springmvc.frame.springframe.beanfactory.MyBeanFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
