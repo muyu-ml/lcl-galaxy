@@ -10,4 +10,13 @@
     <!--处理器适配器-->
     <bean class="com.lcl.galaxy.springmvc.frame.adapter.MyHttpRequestHandlerAdapter"></bean>
     <bean class="com.lcl.galaxy.springmvc.frame.adapter.MySimpleContrpllerHandlerAdapter"></bean>
+
+
+
+    <!--处理器-->
+    <bean class="com.lcl.galaxy.springmvc.frame.controller.UserController"></bean>
+    <!--处理器映射器-->
+    <bean class="com.lcl.galaxy.springmvc.frame.handlermapping.MyRequestMappingHandlerMapping" initMethod="init"></bean>
+    <!--处理器适配器-->
+    <bean class="com.lcl.galaxy.springmvc.frame.adapter.MyRequestMappingHandlerAdapter"></bean>
 </beans>

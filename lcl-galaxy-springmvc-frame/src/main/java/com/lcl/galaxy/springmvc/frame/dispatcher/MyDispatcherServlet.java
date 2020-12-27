@@ -11,6 +11,7 @@ import javax.servlet.ServletConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,7 +63,13 @@ public class MyDispatcherServlet extends MyAbstructServlet {
             return;
         }
         //执行并响应结果
-        mha.handleRequest(handler, request, response);
+        try {
+            mha.handleRequest(handler, request, response);
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

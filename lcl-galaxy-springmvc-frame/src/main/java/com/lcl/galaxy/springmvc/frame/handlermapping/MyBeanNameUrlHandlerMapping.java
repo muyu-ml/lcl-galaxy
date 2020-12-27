@@ -1,7 +1,5 @@
 package com.lcl.galaxy.springmvc.frame.handlermapping;
 
-import com.lcl.galaxy.springmvc.frame.handler.QueryUserHandler;
-import com.lcl.galaxy.springmvc.frame.handler.SaveUserHandler;
 import com.lcl.galaxy.springmvc.frame.springframe.aware.MyBeanFactoryAware;
 import com.lcl.galaxy.springmvc.frame.springframe.beanfactory.MyBeanFactory;
 import com.lcl.galaxy.springmvc.frame.springframe.beanfactory.support.MyDefaultListableBeanFactory;
