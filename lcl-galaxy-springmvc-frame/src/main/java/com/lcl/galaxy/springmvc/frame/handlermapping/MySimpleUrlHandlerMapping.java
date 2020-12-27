@@ -13,8 +13,7 @@ public class MySimpleUrlHandlerMapping implements MyHandlerMapping {
 
 
     public void init(){
-        urlHanlderMap.put("/query", new QueryUserHandler());
-        urlHanlderMap.put("/save", new SaveUserHandler());
+
     }
 
     @Override

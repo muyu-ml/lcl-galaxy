@@ -36,9 +36,9 @@ public class MyDispatcherServlet extends MyAbstructServlet {
     }
 
     private void loadContext(ServletConfig config){
-        //config.getInitParameter(SPRING_MVC_CONTEXT)
+        String pathvalue = config.getInitParameter(SPRING_MVC_CONTEXT);
         //实用配置话获取spring mvc配置文件
-        MyResources resources = new MyClassPathResource("classpath:springmvc.xml");
+        MyResources resources = new MyClassPathResource(pathvalue);
         beanFactory = new MyDefaultListableBeanFactory();
         MyXmlBeanDefinitionReader reader = new MyXmlBeanDefinitionReader(beanFactory);
         reader.loadBeanDefinitions(resources);

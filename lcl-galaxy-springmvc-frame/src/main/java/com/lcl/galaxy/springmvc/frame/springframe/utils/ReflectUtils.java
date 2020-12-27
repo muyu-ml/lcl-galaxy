@@ -65,7 +65,7 @@ public class ReflectUtils {
         try {
             Method declaredMethod = clazz.getDeclaredMethod(initMethod);
             declaredMethod.setAccessible(true);
-            declaredMethod.invoke(initMethod);
+            declaredMethod.invoke(object);
         } catch (Exception e) {
             e.printStackTrace();
         }

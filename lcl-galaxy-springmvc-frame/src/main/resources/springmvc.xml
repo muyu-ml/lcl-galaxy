@@ -1,11 +1,11 @@
 <beans>
     <!--处理器-->
-    <bean class="com.lcl.galaxy.springmvc.frame.handler.QueryUserHandler"></bean>
-    <bean class="com.lcl.galaxy.springmvc.frame.handler.SaveUserHandler"></bean>
+    <bean name="/queryUser" class="com.lcl.galaxy.springmvc.frame.handler.QueryUserHandler"></bean>
+    <bean name="/saveUser" class="com.lcl.galaxy.springmvc.frame.handler.SaveUserHandler"></bean>
 
     <!--处理器映射器-->
-    <bean class="com.lcl.galaxy.springmvc.frame.handlermapping.MyBeanNameUrlHandlerMapping"></bean>
-    <bean class="com.lcl.galaxy.springmvc.frame.handlermapping.MySimpleUrlHandlerMapping"></bean>
+    <bean class="com.lcl.galaxy.springmvc.frame.handlermapping.MyBeanNameUrlHandlerMapping" initMethod="init"></bean>
+    <bean class="com.lcl.galaxy.springmvc.frame.handlermapping.MySimpleUrlHandlerMapping" initMethod="init"></bean>
 
     <!--处理器适配器-->
     <bean class="com.lcl.galaxy.springmvc.frame.adapter.MyHttpRequestHandlerAdapter"></bean>

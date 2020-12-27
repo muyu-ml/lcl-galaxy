@@ -15,6 +15,6 @@ public class MyHttpRequestHandlerAdapter implements MyHandlerAdapter {
 
     @Override
     public boolean support(Object handler) {
-        return handler instanceof  MyHttpRequestHandlerAdapter;
+        return handler instanceof  MyHttpRequestHandler;
     }
 }

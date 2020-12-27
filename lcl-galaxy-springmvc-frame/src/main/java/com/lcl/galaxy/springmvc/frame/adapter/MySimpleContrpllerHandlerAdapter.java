@@ -14,6 +14,6 @@ public class MySimpleContrpllerHandlerAdapter implements MyHandlerAdapter {
 
     @Override
     public boolean support(Object handler) {
-        return handler instanceof MySimpleContrpllerHandlerAdapter;
+        return handler instanceof MySimpleControllerHandler;
     }
 }

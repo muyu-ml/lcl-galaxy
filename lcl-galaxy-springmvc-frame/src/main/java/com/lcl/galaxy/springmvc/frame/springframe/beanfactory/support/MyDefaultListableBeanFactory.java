@@ -3,10 +3,7 @@ package com.lcl.galaxy.springmvc.frame.springframe.beanfactory.support;
 import com.lcl.galaxy.springmvc.frame.springframe.domain.MyBeanDefinition;
 import com.lcl.galaxy.springmvc.frame.springframe.register.MyBeanDefinitionRegisty;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class MyDefaultListableBeanFactory extends MyAbstructAutowireCapableBeanFactory implements MyBeanDefinitionRegisty {
 
@@ -49,5 +46,14 @@ public class MyDefaultListableBeanFactory extends MyAbstructAutowireCapableBeanF
             e.printStackTrace();
         }
         return null;
+    }
+
+    public List<MyBeanDefinition> getBeanDefinitions() {
+        List<MyBeanDefinition> list = new ArrayList<>(beanDefinitions.size());
+        Collection<MyBeanDefinition> values = beanDefinitions.values();
+        for (MyBeanDefinition beanDefinition : values){
+            list.add(beanDefinition);
+        }
+        return list;
     }
 }
