@@ -1,0 +1,40 @@
+spring:
+  redis:
+
+      password:
+
+  # 连接超时时间（毫秒）
+      timeout: 1000
+  # Redis默认情况下有16个分片，这里配置具体使用的分片，默认是0
+      database: 0
+  # 连接池配置
+      lettuce:
+      #lettuce连接池
+        pool:
+  # 连接池最大连接数（使用负值表示没有限制） 默认 8
+          max,active: 8
+  # 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 ,1
+          max,wait: -1
+  # 连接池中的最大空闲连接 默认 8
+          max,idle: 8
+  # 连接池中的最小空闲连接 默认 0
+          min,idle: 0
+          #哨兵增加的配置
+      sentinel:
+        nodes: 8.131.245.53:26379,8.131.245.53.234:26380,8.131.245.53:26381
+        master: mymaster
+      cluster:
+        nodes: 8.131.245.53:8001, 8.131.245.53:8002, 8.131.245.53:8003, 8.131.245.53:8004, 8.131.245.53:8005, 8.131.245.53:8006
+        # 获取失败 最大重定向次数
+        max,redirects: 3
+
+  ###################以下为springcache增加的配置###########################
+  cache:
+    redis:
+      use,key,prefix: true
+      key,prefix: dev
+      cache,null,values: false
+      time,to,live: 20s
+
+
+
