@@ -1,0 +1,33 @@
+spring:
+  redis:
+      password:
+  # ���ӳ�ʱʱ�䣨���룩
+      timeout: 1000
+  # RedisĬ���������16����Ƭ���������þ���ʹ�õķ�Ƭ��Ĭ����0
+      database: 0
+  # ���ӳ�����
+      lettuce:
+      #lettuce���ӳ�
+        pool:
+  # ���ӳ������������ʹ�ø�ֵ��ʾû�����ƣ� Ĭ�� 8
+          max,active: 8
+  # ���ӳ���������ȴ�ʱ�䣨ʹ�ø�ֵ��ʾû�����ƣ� Ĭ�� ,1
+          max,wait: -1
+  # ���ӳ��е����������� Ĭ�� 8
+          max,idle: 8
+  # ���ӳ��е���С�������� Ĭ�� 0
+          min,idle: 0
+          #�ڱ����ӵ�����
+      port: 6388
+      host: 8.131.245.53
+
+  ###################����Ϊspringcache���ӵ�����###########################
+  cache:
+    redis:
+      use,key,prefix: true
+      key,prefix: dev
+      cache,null,values: false
+      time,to,live: 20s
+
+
+
