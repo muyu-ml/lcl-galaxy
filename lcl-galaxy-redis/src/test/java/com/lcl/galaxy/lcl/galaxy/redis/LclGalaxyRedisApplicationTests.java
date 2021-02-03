@@ -31,4 +31,10 @@ class LclGalaxyRedisApplicationTests {
         redisService.testRedis();
     }
 
+
+    @Test
+    void luaTest() {
+        redisService.luaTest();
+    }
+
 }

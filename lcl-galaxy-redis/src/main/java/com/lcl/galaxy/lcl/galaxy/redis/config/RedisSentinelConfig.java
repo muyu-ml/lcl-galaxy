@@ -1,3 +1,4 @@
+/*
 package com.lcl.galaxy.lcl.galaxy.redis.config;
 
 import lombok.Data;
@@ -14,9 +15,11 @@ import org.springframework.data.redis.connection.lettuce.LettucePoolingClientCon
 
 import java.util.Set;
 
+*/
 /*@Configuration
 @ConfigurationProperties(prefix = "spring.redis.sentinel")
-@Data*/
+@Data*//*
+
 public class RedisSentinelConfig {
     private Set<String> nodes;
     private String master;
@@ -35,7 +38,9 @@ public class RedisSentinelConfig {
     private int maxActive;
 
 
-    /*@Bean*/
+    */
+/*@Bean*//*
+
     public RedisConnectionFactory lettuceConnectionFactory() {
         RedisSentinelConfiguration redisSentinelConfiguration = new RedisSentinelConfiguration(master, nodes);
         redisSentinelConfiguration.setPassword(RedisPassword.of(password.toCharArray()));
@@ -50,3 +55,4 @@ public class RedisSentinelConfig {
         return new LettuceConnectionFactory(redisSentinelConfiguration, lettuceClientConfiguration);
     }
 }
+*/

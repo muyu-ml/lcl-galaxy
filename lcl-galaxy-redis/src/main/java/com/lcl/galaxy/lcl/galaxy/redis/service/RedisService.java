@@ -28,4 +28,9 @@ public class RedisService {
         System.out.println("lcl1=============" + val1);
 
     }
+
+    public void luaTest() {
+
+
+    }
 }
