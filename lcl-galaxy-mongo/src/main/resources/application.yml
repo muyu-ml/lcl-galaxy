@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      host: 8.131.245.53
+      port: 27017
+      database: db6
