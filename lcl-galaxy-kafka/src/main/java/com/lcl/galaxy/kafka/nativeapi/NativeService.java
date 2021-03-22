@@ -26,7 +26,10 @@ public class NativeService {
         //ProducerRecord<Integer,String> record = new ProducerRecord<>(topic,partition,key,cityName);
         Future<RecordMetadata> future = producer.send(record);
         RecordMetadata recordMetadata = future.get();
-        log.info("=====================【{}】", JSON.toJSONString(recordMetadata));
+        log.info("=====================【{}】", recordMetadata.offset());
+        log.info("=====================【{}】", recordMetadata.partition());
+        log.info("=====================【{}】", recordMetadata.timestamp());
+        log.info("=====================【{}】", recordMetadata.topic());
     }
 
 
@@ -43,7 +46,10 @@ public class NativeService {
             ProducerRecord<Integer,String> record = new ProducerRecord<>(topic,cityName + i*1000);
             Future<RecordMetadata> future = producer.send(record);
             RecordMetadata recordMetadata = future.get();
-            log.info("=====================【{}】", JSON.toJSONString(recordMetadata));
+            log.info("【{}】=====================【{}】", i+1, recordMetadata.offset());
+            log.info("【{}】=====================【{}】", i+1, recordMetadata.partition());
+            log.info("【{}】=====================【{}】", i+1, recordMetadata.timestamp());
+            log.info("【{}】=====================【{}】", i+1, recordMetadata.topic());
         }
     }
 

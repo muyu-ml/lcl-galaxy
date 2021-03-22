@@ -17,4 +17,10 @@ class LclGalaxyKafkaApplicationTests {
         nativeService.sendMsg();
     }
 
+    @Test
+    void demoTest1()  throws Exception{
+        NativeService nativeService = new NativeService();
+        nativeService.sendMsg1();
+    }
+
 }

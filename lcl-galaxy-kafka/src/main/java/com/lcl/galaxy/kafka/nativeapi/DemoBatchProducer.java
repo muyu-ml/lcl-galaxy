@@ -15,7 +15,7 @@ public class DemoBatchProducer {
 
     public DemoBatchProducer(){
         Properties properties = new Properties();
-        properties.put("bootstrap.servers","8.131.245.53:9092,8.131.245.53:9093,8.131.245.53:9094");
+        properties.put("bootstrap.servers","192.168.206.131:9092,192.168.206.132:9092,192.168.206.133:9092");
         properties.put("key.serializer","org.apache.kafka.common.serialization.IntegerSerializer");
         properties.put("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
         properties.put("batch.size",16384);
