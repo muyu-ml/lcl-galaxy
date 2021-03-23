@@ -67,4 +67,44 @@ public class NativeService {
         }
     }
 
+
+    public void doSyncWork(){
+        DemoConsumer consumer = new DemoConsumer();
+        consumer.getConsumer().subscribe(Collections.singletonList(topic));
+        ConsumerRecords<Integer, String> records = consumer.getConsumer().poll(1000);
+        for (ConsumerRecord<Integer, String> consumerRecord: records) {
+            log.info("============topic={},partition={},key={},value={}===============",consumerRecord.topic(), consumerRecord.partition(), consumerRecord.key(), consumerRecord.value());
+        }
+        consumer.getConsumer().commitSync();
+    }
+
+    public void doAsyncWork(){
+        DemoConsumer consumer = new DemoConsumer();
+        consumer.getConsumer().subscribe(Collections.singletonList(topic));
+        ConsumerRecords<Integer, String> records = consumer.getConsumer().poll(1000);
+        for (ConsumerRecord<Integer, String> consumerRecord: records) {
+            log.info("============topic={},partition={},key={},value={}===============",consumerRecord.topic(), consumerRecord.partition(), consumerRecord.key(), consumerRecord.value());
+        }
+        consumer.getConsumer().commitAsync((offsets, ex)->{
+            if(ex != null){
+                log.info("提交失败：offset={}，exception={}", offsets, ex);
+            }
+        });
+    }
+
+    public void doAsyncAndSyncWork(){
+        DemoConsumer consumer = new DemoConsumer();
+        consumer.getConsumer().subscribe(Collections.singletonList(topic));
+        ConsumerRecords<Integer, String> records = consumer.getConsumer().poll(1000);
+        for (ConsumerRecord<Integer, String> consumerRecord: records) {
+            log.info("============topic={},partition={},key={},value={}===============",consumerRecord.topic(), consumerRecord.partition(), consumerRecord.key(), consumerRecord.value());
+        }
+        consumer.getConsumer().commitAsync((offsets, ex)->{
+            if(ex != null){
+                log.info("提交失败：offset={}，exception={}", offsets, ex);
+                consumer.getConsumer().commitSync();
+            }
+        });
+    }
+
 }
