@@ -25,9 +25,27 @@ class LclGalaxyKafkaApplicationTests {
 
 
     @Test
-    void consumerTest()  throws Exception{
+    void autoConsumerTest()  throws Exception{
         NativeService nativeService = new NativeService();
-        nativeService.doWork();
+        nativeService.autoDoWork();
+    }
+
+    @Test
+    void syncConumerTest()  throws Exception{
+        NativeService nativeService = new NativeService();
+        nativeService.syncDoWork();
+    }
+
+    @Test
+    void asyncConumerTest()  throws Exception{
+        NativeService nativeService = new NativeService();
+        nativeService.asyncDoWork();
+    }
+
+    @Test
+    void syncasyncConumerTest()  throws Exception{
+        NativeService nativeService = new NativeService();
+        nativeService.syncasyncDoWork();
     }
 
 }
