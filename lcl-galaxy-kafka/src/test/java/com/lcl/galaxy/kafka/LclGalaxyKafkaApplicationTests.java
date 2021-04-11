@@ -48,4 +48,17 @@ class LclGalaxyKafkaApplicationTests {
         nativeService.syncasyncDoWork();
     }
 
+
+    @Test
+    void syncConsumerTest()  throws Exception{
+        NativeService nativeService = new NativeService();
+        nativeService.doSyncWork();
+    }
+
+    @Test
+    void asyncConsumerTest()  throws Exception{
+        NativeService nativeService = new NativeService();
+        nativeService.doAsyncWork();
+    }
+
 }
