@@ -1,0 +1,5 @@
+spring:
+  elasticsearch:
+    jest:
+      uris: 172.20.10.3:9300
+
