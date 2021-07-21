@@ -1,15 +1,31 @@
 package com.lcl.galaxy.es.service;
 
+import com.google.gson.Gson;
 import com.lcl.galaxy.es.dto.HtmlParseDTO;
 import com.lcl.galaxy.es.utils.HtmlParseUtil;
+import org.elasticsearch.action.bulk.BulkRequest;
+import org.elasticsearch.action.bulk.BulkResponse;
+import org.elasticsearch.action.index.IndexRequest;
+import org.elasticsearch.action.search.SearchRequest;
+import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.common.unit.TimeValue;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.TermQueryBuilder;
+import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class HtmlParseService {
-    /*@Autowired
+    @Autowired
     private RestHighLevelClient restHighLevelClient;
     @Autowired
     private HtmlParseUtil htmlParseUtil;
@@ -25,9 +41,9 @@ public class HtmlParseService {
             System.out.println(HtmlParseDTOs.get(i));
             bulkRequest.add(
                     new IndexRequest("jd_goods_2",keywords+"")
-                            .source(JSON.toJSONString(HtmlParseDTOs.get(i)), XHtmlParseDTOType.JSON));
+                            .source(new Gson().toJson(HtmlParseDTOs.get(i))));
         }
-        BulkResponse bulk = restHighLevelClient.bulk(bulkRequest, RequestOptions.DEFAULT);
+        BulkResponse bulk = restHighLevelClient.bulk(bulkRequest);
         return !bulk.hasFailures();
     }
 
@@ -52,7 +68,7 @@ public class HtmlParseService {
 
         //执行搜索
         searchRequest.source(sourceBuilder);
-        SearchResponse searchResponse = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);
+        SearchResponse searchResponse = restHighLevelClient.search(searchRequest);
 
         //解析结果
         List<Map<String,Object>> list = new ArrayList<>();
@@ -60,6 +76,6 @@ public class HtmlParseService {
             list.add(documentFields.getSourceAsMap());
         }
         return list;
-    }*/
+    }
 
 }

@@ -1,3 +1,4 @@
+/*
 package com.lcl.galaxy.es.service.impl;
 
 import com.lcl.galaxy.es.dao.SkuRepository;
@@ -15,10 +16,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
 public class SkuServiceImpl implements SkuService{
 
-    @Autowired
     private SkuRepository skuRepository;
 
     @Override
@@ -59,3 +58,4 @@ public class SkuServiceImpl implements SkuService{
         return skuRepository.search(searchQuery);
     }
 }
+*/

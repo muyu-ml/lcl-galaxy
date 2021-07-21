@@ -1,5 +1,11 @@
-spring:
-  elasticsearch:
-    jest:
-      uris: 172.20.10.3:9300
-
+# Elasticsearch相关的配置
+elasticsearch:
+  clientIps: 172.20.10.6 # ES网关地址，实际地址在ES实例概览中查看，注意至少配置两个网关地址
+  httpPort: 9200  # ES网关端口
+  username: elastic
+  password: 123456
+esParam:
+  IndexName: testName # 索引名
+  indexType: "type" # 索引type，有可能是type或者doc
+  bulkSize: 500 # 一次bulk请求文档个数
+  docNum: 200000000 # 希望导入的数据总量
