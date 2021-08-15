@@ -52,4 +52,16 @@ public class PrototypeTest {
         log.info("prototype.getOrder().getOrderId().equals(copyPrototype.getOrder().getOrderId())=================={}=================", prototype.getOrder().getOrderId().equals(copyPrototype.getOrder().getOrderId()));
     }
 
+    @Test
+    public void testMain(){
+        int i = 0;
+        this.call(i);
+    }
+
+    private void call(int i) {
+        i++;
+        log.info("======{}", i);
+        call(i);
+    }
+
 }

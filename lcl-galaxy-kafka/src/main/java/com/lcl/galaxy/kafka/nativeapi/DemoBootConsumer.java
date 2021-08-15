@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class BootConsumer {
+public class DemoBootConsumer {
 
     @KafkaListener(topics = "${kafka.topic}")
     public void onMsg(String message){

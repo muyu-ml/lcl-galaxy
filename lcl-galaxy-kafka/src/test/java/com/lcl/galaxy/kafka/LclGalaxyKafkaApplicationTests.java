@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest(classes = LclGalaxyKafkaApplication.class)
 class LclGalaxyKafkaApplicationTests {
-
+/*
     @Test
     void contextLoads() {
     }
@@ -52,13 +52,13 @@ class LclGalaxyKafkaApplicationTests {
     @Test
     void syncConsumerTest()  throws Exception{
         NativeService nativeService = new NativeService();
-        nativeService.doSyncWork();
+        //nativeService.doSyncWork();
     }
 
     @Test
     void asyncConsumerTest()  throws Exception{
         NativeService nativeService = new NativeService();
-        nativeService.doAsyncWork();
-    }
+        //nativeService.doAsyncWork();
+    }*/
 
 }
