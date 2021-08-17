@@ -1,4 +1,4 @@
-package com.lcl.galaxy.rabbitmq.consumer;
+package com.lcl.galaxy.rabbitmq.original.demo;
 
 import com.rabbitmq.client.*;
 
@@ -29,6 +29,13 @@ public class RabbitMQConsumer {
         channel.queueDeclare(queueName, true , false, false, null);
         // 队列绑定
         channel.queueBind(queueName,"cc","hello");
+
+        /**
+         * 限流设置:  prefetchSize：每条消息大小的设置，0是无限制
+         * prefetchCount:标识每次推送多少条消息 一般是一条
+         * global:false标识channel级别的  true:标识消费者级别的
+         */
+        channel.basicQos(0,1,false);
 
         // 异步获取投递消息
         // 就相当于根据 路由key 获取 信封中的数据

@@ -1,4 +1,4 @@
-package com.lcl.galaxy.rabbitmq.producer;
+package com.lcl.galaxy.rabbitmq.original.demo;
 
 import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;

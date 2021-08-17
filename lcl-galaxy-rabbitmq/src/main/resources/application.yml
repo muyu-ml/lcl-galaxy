@@ -1,3 +1,28 @@
 spring:
-  application:
-    name: demo
+  #配置rabbitMq 服务器
+  rabbitmq:
+    host: 192.168.124.8
+    port: 5672
+    username: lcl
+    password: 123456
+    #虚拟host 可以不设置,使用server默认host
+    virtual-host: /
+
+    #消息确认配置项
+    #确认消息已发送到交换机(Exchange) 老版本使用配置项 publisher-confirms: true
+    publisher-confirm-type: correlated
+    #确认消息已发送到队列(Queue)
+    publisher-returns: true
+    listener:
+      simple:
+        #消费者最小数量
+        concurrency: 1
+        #消费之最大数量
+        max-concurrency: 10
+        #在单个请求中处理的消息个数，他应该大于等于事务数量(unack的最大数量)
+        prefetch: 1
+        # 是否手动确认
+        #acknowledge-mode: manual
+    template:
+      mandatory: true
+

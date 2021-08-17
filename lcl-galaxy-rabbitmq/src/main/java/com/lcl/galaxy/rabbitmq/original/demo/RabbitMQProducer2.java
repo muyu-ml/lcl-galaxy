@@ -1,4 +1,4 @@
-package com.lcl.galaxy.rabbitmq.producer;
+package com.lcl.galaxy.rabbitmq.original.demo;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -31,9 +31,9 @@ public class RabbitMQProducer2 {
 
         channel.basicPublish(exchangeName, routingKey, null, msg.getBytes());
 
-        // 5. 关闭资源
+        /*// 5. 关闭资源
         channel.close();
-        connection.close();
+        connection.close();*/
 
     }
 }

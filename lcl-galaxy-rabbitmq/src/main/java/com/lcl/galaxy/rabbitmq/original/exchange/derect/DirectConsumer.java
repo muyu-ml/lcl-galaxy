@@ -1,65 +1,53 @@
-package com.lcl.galaxy.rabbitmq.consumer;
+package com.lcl.galaxy.rabbitmq.original.exchange.derect;
 
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
 
-public class RabbitMQConsumer2 {
+public class DirectConsumer {
+
     public static void main(String[] args) throws Exception {
 
-        // 1. 创建 ConnetionFactory 连接工厂
         ConnectionFactory factory = new ConnectionFactory();
-
-        //factory.setUsername("guest");
-        //factory.setPassword("guest");
         factory.setHost("192.168.124.8");
         factory.setPort(5672);
         factory.setVirtualHost("/");
         factory.setUsername("lcl");
         factory.setPassword("123456");
-
-        // 2. 获取 Connection 连接对象
-        Connection connection = factory.newConnection();
-
-        // 3. 创建 Channel 信道
-        Channel channel = connection.createChannel();
+        // 2. 创建一个 Connection
+        Connection conn = factory.newConnection();
+        // 3. 获取一个信道 Channel
+        Channel channel = conn.createChannel();
 
         // 声明交换机
-        String exchangeName = "aa";
-        channel.exchangeDeclare(exchangeName, "direct", true);
+        String exchangeName = "direct_exchange";
+        String exchangeType = "direct";
+        channel.exchangeDeclare(exchangeName, exchangeType, true);
 
-        // 4. 声明队列
+        // 5. 声明&绑定队列
         String queueName = channel.queueDeclare().getQueue();
-        String routingKey = "msg02";
+        String routingKey = "msg_direct";
         channel.queueBind(queueName, exchangeName, routingKey);
-
         // 5. 消费消息
         while (true){
-
             boolean autoAck = false;
-            String consmerTag = "";
-            channel.basicConsume(queueName, autoAck, consmerTag, new DefaultConsumer(channel){
-
+            String consumerTag = "";
+            channel.basicConsume(queueName, autoAck, consumerTag, new DefaultConsumer(channel){
                 @Override
                 public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                    // super.handleDelivery(consumerTag, envelope, properties, body);
-
+                    // 获取 routingKey & contentType
                     String routingKey = envelope.getRoutingKey();
                     String contentType = properties.getContentType();
-                    System.out.println("消费的路由键：" + routingKey + " 消费的内容类型：" + contentType);
-
+                    System.out.println("消费的 Routing Key：" + routingKey + " \n消费的 Content Type：" + contentType);
+                    // 获取传送标签
                     long deliveryTag = envelope.getDeliveryTag();
                     // 确认消息
                     channel.basicAck(deliveryTag, false);
-
-                    System.out.println("消费的消息体：");
+                    System.out.println("消费的 Body：");
                     String bodyMsg = new String(body, "UTF-8");
                     System.out.println(bodyMsg);
-
                 }
             });
         }
-
-
     }
 }
