@@ -43,7 +43,7 @@ public class GroupChatServerHandler extends SimpleChannelInboundHandler<String> 
 
         Channel channel = ctx.channel();
         channelGroup.writeAndFlush("[客户端]" + channel.remoteAddress() + " 离开了\n");
-        System.out.println("channelGroup size" + channelGroup.size());
+        System.out.println("channelGroup size=" + channelGroup.size());
 
     }
 
@@ -51,14 +51,14 @@ public class GroupChatServerHandler extends SimpleChannelInboundHandler<String> 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
 
-        System.out.println(ctx.channel().remoteAddress() + " 上线了~");
+        System.out.println(ctx.channel().remoteAddress() + " 上线");
     }
 
     //表示channel 处于不活动状态, 提示 xx离线了
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
 
-        System.out.println(ctx.channel().remoteAddress() + " 离线了~");
+        System.out.println(ctx.channel().remoteAddress() + " 离线");
     }
 
     //读取数据

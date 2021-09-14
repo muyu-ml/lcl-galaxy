@@ -20,7 +20,7 @@ public class MyWebSocketServer {
 
         //创建两个线程组
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
-        EventLoopGroup workerGroup = new NioEventLoopGroup(); //8个NioEventLoop
+        EventLoopGroup workerGroup = new NioEventLoopGroup(); //16个NioEventLoop
         try {
 
             ServerBootstrap serverBootstrap = new ServerBootstrap();

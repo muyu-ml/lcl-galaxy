@@ -24,7 +24,8 @@ public class MyServerHandler extends ChannelInboundHandlerAdapter {
                     eventType = "读写空闲";
                     break;
             }
-            System.out.println(ctx.channel().remoteAddress() + "--超时时间--" + eventType);
+
+            System.out.println(ctx.channel().remoteAddress() + "--超时类型--" + eventType );
             System.out.println("服务器做相应处理..");
 
             //如果发生空闲，我们关闭通道

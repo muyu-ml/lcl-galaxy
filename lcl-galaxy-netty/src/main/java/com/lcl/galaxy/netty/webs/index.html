@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>my websocket client</title>
+</head>
+<body>
+<textarea id="msgBoxs" style="height: 300px; width: 600px"></textarea>
+<br>
+待发送消息：<input type="text" id="msg">
+<input type="button" id="sendBtn" onclick="send()" value="发送">
+<script type="application/javascript">
+    var socket ;
+    if(!window.WebSocket){
+        window.WebSocket = window.MozWebSocket;
+    }
+    //判断当前浏览器是否支持websocket
+    if(window.WebSocket){
+        var msgBoxs = document.getElementById("msgBoxs")
+        //go on
+        socket = new WebSocket("ws://localhost:8081/websocket66")
+        //相当于连接开启(感知到连接开启)
+        socket.onopen = function (evt) {
+            msgBoxs.value = "连接开启了.."
+            console.log("Connection open ...");
+        }
+        //相当于channelRead, ev 收到服务器端回送的消息
+        socket.onmessage = function (evt) {
+            console.log("Received Message: ", evt.data)
+            msgBoxs.value =  msgBoxs.value + "\n" + evt.data
+        }
+        //相当于连接关闭(感知到连接关闭)
+        socket.onclose = function (evt) {
+            console.log("Connect closed.");
+            msgBoxs.value = msgBoxs.value + "\n" + "连接关闭了.."
+        }
+    }else{
+        alert("ERROR:您的浏览器不支持WebSocket！！");
+    }
+
+    function send() {
+        if(!window.socket) { //先判断socket是否创建好
+            return;
+        }
+        if(socket.readyState == WebSocket.OPEN) {
+            var msg = document.getElementById("msg").value
+            socket.send(msg)
+        }else {
+            alert("连接没有开启");
+        }
+
+        //msgBox.value = ""
+    }
+
+</script>
+</body>
+</html>

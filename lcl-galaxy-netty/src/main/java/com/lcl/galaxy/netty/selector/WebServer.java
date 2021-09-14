@@ -1,4 +1,4 @@
-package com.lcl.galaxy.netty.nio.selector;
+package com.lcl.galaxy.netty.selector;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

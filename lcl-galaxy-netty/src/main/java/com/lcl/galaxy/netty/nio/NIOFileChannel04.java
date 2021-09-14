@@ -11,8 +11,8 @@ public class NIOFileChannel04 {
     public static void main(String[] args) throws Exception {
 
         //创建相关流
-        FileInputStream fileInputStream = new FileInputStream("/Users/conglongli/Desktop/123.png");
-        FileOutputStream fileOutputStream = new FileOutputStream("/Users/conglongli/Desktop/456.png");
+        FileInputStream fileInputStream = new FileInputStream("/Users/conglongli/Desktop/0001.jpg");
+        FileOutputStream fileOutputStream = new FileOutputStream("/Users/conglongli/Desktop/0005.jpg");
 
         //获取各个流对应的 FileChannel
         FileChannel sourceCh = fileInputStream.getChannel();
