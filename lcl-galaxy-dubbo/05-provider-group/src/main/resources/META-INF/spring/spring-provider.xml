@@ -15,6 +15,6 @@
     <bean id="zhifubaoService" class="com.abc.provider.ZhifubaoServiceImpl"/>
 
     <!--暴露服务-->
-    <dubbo:service interface="com.abc.service.SomeService" ref="weixinService" group="pay.weixin" protocol="rmi"/>
+    <dubbo:service interface="com.abc.service.SomeService" ref="weixinService" group="pay.weixin" protocol="rmi" loadbalance="roundrobin"/>
     <dubbo:service interface="com.abc.service.SomeService" ref="zhifubaoService" group="pay.zhifubao" protocol="dubbo"/>
 </beans>

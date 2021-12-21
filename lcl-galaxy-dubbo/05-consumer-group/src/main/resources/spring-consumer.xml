@@ -7,9 +7,14 @@
 
     <dubbo:registry address="zookeeper://zkOS:2181" />
 
+<!--    <dubbo:reference id="weixin"  group="pay.weixin" interface="com.abc.service.SomeService" protocol="rmi">-->
+<!--        <dubbo:method name="get1" loadbalance="random" retry="3" />-->
+<!--        <dubbo:method name="get2" loadbalance="roundrobin" retry="5"/>-->
+<!--    </dubbo:reference>-->
+
     <!--指定调用微信服务-->
     <dubbo:reference id="weixin"  group="pay.weixin" interface="com.abc.service.SomeService" protocol="rmi"/>
     <!--指定调用支付宝服务-->
-    <dubbo:reference id="zhifubao"  group="pay.zhifubao" interface="com.abc.service.SomeService" protocol="dubbo"/>
+    <dubbo:reference id="zhifubao"  group="pay.zhifubao" interface="com.abc.service.SomeService" protocol="dubbo" loadbalance="roundrobin" cluster="Failover" retries="2"/>
 
 </beans>
