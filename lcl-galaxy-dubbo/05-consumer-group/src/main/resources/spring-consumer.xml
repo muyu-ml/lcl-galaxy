@@ -8,8 +8,8 @@
     <dubbo:registry address="zookeeper://zkOS:2181" />
 
     <!--指定调用微信服务-->
-    <dubbo:reference id="weixin"  group="pay.weixin" interface="com.abc.service.SomeService"/>
+    <dubbo:reference id="weixin"  group="pay.weixin" interface="com.abc.service.SomeService" protocol="rmi"/>
     <!--指定调用支付宝服务-->
-    <dubbo:reference id="zhifubao"  group="pay.zhifubao" interface="com.abc.service.SomeService"/>
+    <dubbo:reference id="zhifubao"  group="pay.zhifubao" interface="com.abc.service.SomeService" protocol="dubbo"/>
 
 </beans>

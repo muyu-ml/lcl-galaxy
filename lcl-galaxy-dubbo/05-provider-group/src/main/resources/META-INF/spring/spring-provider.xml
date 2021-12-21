@@ -7,11 +7,14 @@
 
     <dubbo:registry address="zookeeper://zkOS:2181"/>
 
+    <dubbo:protocol name="dubbo" port="20883"/>
+    <dubbo:protocol name="rmi" port="1099"/>
+
     <!--注册Service实现类-->
     <bean id="weixinService" class="com.abc.provider.WeixinServiceImpl"/>
     <bean id="zhifubaoService" class="com.abc.provider.ZhifubaoServiceImpl"/>
 
     <!--暴露服务-->
-    <dubbo:service interface="com.abc.service.SomeService" ref="weixinService" group="pay.weixin"/>
-    <dubbo:service interface="com.abc.service.SomeService" ref="zhifubaoService" group="pay.zhifubao"/>
+    <dubbo:service interface="com.abc.service.SomeService" ref="weixinService" group="pay.weixin" protocol="rmi"/>
+    <dubbo:service interface="com.abc.service.SomeService" ref="zhifubaoService" group="pay.zhifubao" protocol="dubbo"/>
 </beans>

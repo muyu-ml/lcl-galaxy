@@ -7,13 +7,16 @@
 
     <dubbo:registry address="zookeeper://zkOS:2181"/>
 
+    <dubbo:protocol name="dubbo" port="20883"/>
+    <dubbo:protocol name="rmi" port="1099"/>
+
     <!--注册Service实现类-->
     <bean id="oldService" class="com.abc.provider.OldServiceImpl"/>
     <bean id="newService" class="com.abc.provider.NewServiceImpl"/>
 
     <!--暴露服务-->
     <dubbo:service interface="com.abc.service.SomeService" ref="oldService" version="0.0.1"/>
-    <dubbo:service interface="com.abc.service.SomeService" ref="newService" version="0.0.2"/>
+    <dubbo:service interface="com.abc.service.SomeService" ref="newService" version="0.0.2" protocol="dubbo,rmi"/>
 
 
 </beans>

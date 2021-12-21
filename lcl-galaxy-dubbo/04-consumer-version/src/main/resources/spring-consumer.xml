@@ -11,6 +11,6 @@
     <!--<dubbo:reference id="someService"  version="0.0.1" interface="com.abc.service.SomeService"/>-->
 
     <!--指定消费0.0.2版本，即newService提供者-->
-    <dubbo:reference id="someService"  version="0.0.2"  interface="com.abc.service.SomeService"/>
+    <dubbo:reference id="someService"  version="0.0.2"  interface="com.abc.service.SomeService" protocol="rmi"/>
 
 </beans>
