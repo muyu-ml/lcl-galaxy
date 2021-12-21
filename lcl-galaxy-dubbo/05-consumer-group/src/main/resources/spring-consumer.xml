@@ -3,14 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
     
-    <dubbo:application name="04-consumer-version"/>
+    <dubbo:application name="05-consumer-group"/>
 
     <dubbo:registry address="zookeeper://zkOS:2181" />
 
-    <!--指定消费0.0.1版本，即oldService提供者-->
-    <!--<dubbo:reference id="someService"  version="0.0.1" interface="com.abc.service.SomeService"/>-->
-
-    <!--指定消费0.0.2版本，即newService提供者-->
-    <dubbo:reference id="someService"  version="0.0.2"  interface="com.abc.service.SomeService"/>
+    <!--指定调用微信服务-->
+    <dubbo:reference id="weixin"  group="pay.weixin" interface="com.abc.service.SomeService"/>
+    <!--指定调用支付宝服务-->
+    <dubbo:reference id="zhifubao"  group="pay.zhifubao" interface="com.abc.service.SomeService"/>
 
 </beans>
