@@ -9,6 +9,6 @@
 
     <dubbo:registry address="zookeeper://zkOS:2181" />
 
-    <dubbo:reference id="userService" mock="true" timeout="2000" interface="com.abc.service.UserService"/>
+    <dubbo:reference id="userService" mock="true" timeout="2000" interface="com.abc.service.UserService" lazy="true"/>
 
 </beans>
