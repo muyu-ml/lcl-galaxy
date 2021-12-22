@@ -11,6 +11,12 @@
     <dubbo:registry id="gzCenter" address="zookeeper://gzZK:2181"/>  <!--广州中心-->
     <dubbo:registry id="cqCenter" address="zookeeper://cqZK:2181"/>  <!--重庆中心-->
 
+<!--    只订阅-->
+<!--    <dubbo:registry id="cqCenter1" address="zookeeper://cqZK:2181" register="false"/>  &lt;!&ndash;重庆中心&ndash;&gt;-->
+<!--    只注册-->
+<!--    <dubbo:registry id="cqCenter2" address="zookeeper://cqZK:2181" subscribe="false"/>  &lt;!&ndash;重庆中心&ndash;&gt;-->
+
+
     <!--注册Service实现类-->
     <bean id="weixinService" class="com.abc.provider.WeixinServiceImpl"/>
     <bean id="zhifubaoService" class="com.abc.provider.ZhifubaoServiceImpl"/>
@@ -20,4 +26,9 @@
                    ref="weixinService" group="pay.weixin" register="bjCenter, shCenter"/>
     <dubbo:service interface="com.abc.service.SomeService"
                    ref="zhifubaoService" group="pay.zhifubao" register="gzCenter, cqCenter"/>
+
+
+<!--    只订阅-->
+<!--    <dubbo:service interface="com.abc.service.SomeService" registry="false" ref="zhifubaoService"/>-->
+
 </beans>
