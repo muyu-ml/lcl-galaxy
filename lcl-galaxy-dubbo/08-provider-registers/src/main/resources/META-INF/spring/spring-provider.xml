@@ -31,4 +31,8 @@
 <!--    只订阅-->
 <!--    <dubbo:service interface="com.abc.service.SomeService" registry="false" ref="zhifubaoService"/>-->
 
+
+<!--    服务延迟暴露-->
+<!--    <dubbo:service interface="com.abc.service.SomeService" ref="zhifubaoService" delay="1000"/>-->
+
 </beans>
