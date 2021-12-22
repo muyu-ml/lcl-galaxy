@@ -11,4 +11,8 @@
 
     <dubbo:reference id="userService" mock="true" timeout="2000" interface="com.abc.service.UserService" lazy="true"/>
 
+<!--    使用粘连连接-->
+<!--    <dubbo:reference id="userService" mock="true" timeout="2000" interface="com.abc.service.UserService" sticky="true"/>-->
+
+
 </beans>
