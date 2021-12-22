@@ -18,5 +18,6 @@
     <dubbo:reference id="someService" check="false"
                      interface="com.abc.service.SomeService"/>
 
+    <dubbo:reference id="gene" check="false" interface="com.abc.service.gene" generic="true"/>
 
 </beans>

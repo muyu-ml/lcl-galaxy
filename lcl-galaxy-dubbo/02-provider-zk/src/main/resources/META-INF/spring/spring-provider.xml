@@ -30,4 +30,11 @@
 
 
 
+    <bean id="geneTest" class="com.abc.provider.GeneTestImpl"/>
+    <dubbo:service interface="com.abc.service.gene" ref="geneTest" generic="true" />
+
+
+
+
+
 </beans>
