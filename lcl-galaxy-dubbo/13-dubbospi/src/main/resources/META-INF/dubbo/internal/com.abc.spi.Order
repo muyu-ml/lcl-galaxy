@@ -1,0 +1,2 @@
+alipay,xxx=com.abc.spi.AlipayOrder
+com.abc.spi.WechatOrder
