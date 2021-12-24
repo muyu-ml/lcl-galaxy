@@ -1,0 +1,5 @@
+alipay=com.abc.spi.AlipayOrder
+wechat=com.abc.spi.WechatOrder
+card=com.abc.spi.CardOrder
+cash=com.abc.spi.CashOrder
+coupon=com.abc.spi.CouponOrder
