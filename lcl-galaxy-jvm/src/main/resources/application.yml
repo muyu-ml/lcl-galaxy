@@ -1,0 +1,27 @@
+# ??????????Prometheus?
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
+## ??Actuator????
+#      base-path: /actuator
+## ??endpoint ??????
+#    shutdown:
+#      enabled: true
+
+server:
+  port: 9001
+spring:
+  application:
+    name: test-gc
+# ??/actuator/prometheus??????* ??????????
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'prometheus'
+# ????????application label
+  metrics:
+    tags:
+      application: ${spring.application.name}
