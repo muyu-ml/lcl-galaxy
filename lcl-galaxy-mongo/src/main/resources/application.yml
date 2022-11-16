@@ -1,6 +1,6 @@
 spring:
   data:
     mongodb:
-      host: 8.131.245.53
+      host: 192.168.249.130
       port: 27017
-      database: db6
+      database: testcluster
