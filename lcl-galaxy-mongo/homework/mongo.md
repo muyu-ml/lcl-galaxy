@@ -1,4 +1,4 @@
-# 一、单机搭建
+##  一、单机搭建
 
 1、安装与启动
 
@@ -70,9 +70,7 @@ echo "stop mongo..."
 ps -ef | grep mongodb
 ```
 
-
-
-# 二、复制集搭建
+##  二、复制集搭建
 
 1、配置脚本
 
@@ -412,9 +410,9 @@ rs.status()
 rs.addArb("192.168.249.130:37020")  
 ```
 
-# 三、集群搭建
+## 三、集群搭建
 
-## （一）配置并启动 config 节点
+### （一）配置并启动 config 节点
 
 1、相关目录创建
 
@@ -564,7 +562,7 @@ rs.initiate(cfg)
 rs.status()
 ```
 
-## （二）配置 shard1集群
+### （二）配置 shard1集群
 
 1、shard1集群搭建37017到37019
 
@@ -671,7 +669,7 @@ rs.initiate(cfg)
 rs.status()
 ```
 
-## （三）配置shard2集群
+### （三）配置shard2集群
 
 1、shard2集群搭建47017到47019
 
@@ -778,7 +776,7 @@ rs.initiate(cfg)
 rs.status()
 ```
 
-## （四）配置和启动路由节点
+### （四）配置和启动路由节点
 
 1、配置数据
 
@@ -820,7 +818,7 @@ sh.addShard("shard2/192.168.249.130:47017,192.168.249.130:47018,192.168.249.130:
 sh.status()
 ```
 
-## （五）开启数据库和集合分片
+### （五）开启数据库和集合分片
 
 1、继续使用mongos完成分片开启和分片大小设置
 
@@ -874,13 +872,13 @@ for(var i=1;i<= 1000;i++){
 }
 ```
 
-#### 6）验证分片效果
+### （五）验证分片效果
 
 分别进入 shard1 和 shard2 中的数据库 进行验证
 
-# 四、Springboot集成
+## 四、Springboot集成
 
-## （一）MongoTemplate 方式  
+### （一）MongoTemplate 方式  
 
 1、基于maven新建springboot工程
 
@@ -981,7 +979,7 @@ public class ClusterTest {
 }
 ```
 
-## （二）MongoRepository 方式  
+### （二）MongoRepository 方式  
 
 1、基于maven新建springboot工程
 
