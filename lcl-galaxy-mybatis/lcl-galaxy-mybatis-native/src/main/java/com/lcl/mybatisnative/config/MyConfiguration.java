@@ -1,10 +1,6 @@
 package com.lcl.mybatisnative.config;
 
-import com.lcl.mybatisnative.sqlsession.MySqlSession;
 import lombok.Data;
-import org.apache.ibatis.binding.BindingException;
-import org.apache.ibatis.binding.MapperProxyFactory;
-import org.apache.ibatis.session.SqlSession;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
