@@ -2,13 +2,9 @@ package com.lcl.galaxy.mybatis.common.dao.impl;
 
 import com.lcl.galaxy.mybatis.common.dao.JdbcUserDao;
 import com.lcl.galaxy.mybatis.simple.common.domain.UserDo;
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
 import lombok.extern.slf4j.Slf4j;
 
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 @Slf4j
 public class JdbcUserDaoImpl implements JdbcUserDao {

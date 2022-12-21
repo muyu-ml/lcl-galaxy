@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <properties resource="db123.properties"></properties>
+    <properties resource="db.properties"></properties>
     <!--
      propertites标签使用方式
      方式一：使用resource加载外部配置文件

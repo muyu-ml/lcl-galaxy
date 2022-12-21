@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lcl.galaxy</groupId>
-    <artifactId>lcl-galaxy-mybatis</artifactId>
+    <artifactId>lcl-galaxy-mybatis-old</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>lcl-galaxy-mybatis</name>
+    <name>lcl-galaxy-mybatis-old</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

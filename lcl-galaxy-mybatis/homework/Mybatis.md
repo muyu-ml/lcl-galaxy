@@ -71,7 +71,7 @@ UserMapper mapper = session.getMapper(UserMapper.class);
 List<User> userList = mapper.findAll();
 ````
 
-## 三、Mybatis 源码概述
+## 三、Mybatis 源码综述
 
 ### （一）类概述
 
@@ -91,14 +91,15 @@ List<User> userList = mapper.findAll();
 
 ​	**2、三个封装类**
 
-​		（1）Configuration：封装全局配置文件和映射文件中的信息
+​		（1）Configuration：封装全局配置文件 Environment 和映射文件中的信息 Map<String, MappedStatement>，还有很多其他的配置信息
 
-​		（2）BoundSql：封装解析之后的SQL语句和解析出来的参数信息
+​		（2）MappedStatement：封装select|insert|update|delete等标签信息，一个标签对应一个MappedStatement对象，包含入参和出参类型信息，包含了 SqlSource 等信息
 
-​		（3）MappedStatement：封装select|insert|update|delete等标签信息，一个标签对应一个MappedStatement对象，包含入参和出参类型信息
+​				Executor通过MappedStatement在执行sql前，将输入java对象属性映射至SQL中，输入参数映射就是jdbc编程中对preparedStatement设置参数
 
-				- Executor通过MappedStatement在执行sql前，将输入java对象属性映射至SQL中，输入参数映射就是jdbc编程中对preparedStatement设置参数
-				- Executor通过Mapped Statement在执行sql后，将输出结果映射至java对象属性中，输出结果映射过程相当于jdbc编程中对结果的解析处理过程
+​				Executor通过Mapped Statement在执行sql后，将输出结果映射至java对象属性中，输出结果映射过程相当于jdbc编程中对结果的解析处理过程
+
+​		（3）BoundSql：封装解析之后的SQL语句和解析出来的参数信息，通过 SqlSource 接口的 getBoundSql 获取
 
 ​	**3、其他相关类**
 
