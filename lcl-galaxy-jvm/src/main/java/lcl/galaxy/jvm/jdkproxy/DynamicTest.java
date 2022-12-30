@@ -9,6 +9,5 @@ public class DynamicTest {
         InvocationHandler invocationHandler = new DynamicProxy(orderService);
         OrderService proxy = (OrderService)Proxy.newProxyInstance(invocationHandler.getClass().getClassLoader(), orderService.getClass().getInterfaces(), invocationHandler);
         String s = proxy.getOrderName("lcl");
-
     }
 }
