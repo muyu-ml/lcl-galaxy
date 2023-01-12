@@ -1,7 +1,7 @@
-package com.lcl.galaxy.springtest.service.impl;
+package com.lcl.galaxy.springtest.proxy.service.impl;
 
-import com.lcl.galaxy.springtest.model.Account;
-import com.lcl.galaxy.springtest.service.AccountService;
+import com.lcl.galaxy.springtest.proxy.model.Account;
+import com.lcl.galaxy.springtest.proxy.service.AccountService;
 
 public class AccountServiceImpl implements AccountService {
     @Override

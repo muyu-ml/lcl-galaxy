@@ -1,4 +1,4 @@
-package com.lcl.galaxy.springtest.model;
+package com.lcl.galaxy.springtest.proxy.model;
 
 public class Account {
     private String accountName;

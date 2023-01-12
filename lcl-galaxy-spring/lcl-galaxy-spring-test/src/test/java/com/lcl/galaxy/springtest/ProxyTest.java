@@ -1,10 +1,10 @@
 package com.lcl.galaxy.springtest;
 
-import com.lcl.galaxy.springtest.model.Account;
-import com.lcl.galaxy.springtest.performance.config.CglibProxyAppConfig;
-import com.lcl.galaxy.springtest.performance.config.JDKProxyAppConfig;
-import com.lcl.galaxy.springtest.service.AccountService;
-import com.lcl.galaxy.springtest.service.impl.AccountServiceImpl;
+import com.lcl.galaxy.springtest.proxy.model.Account;
+import com.lcl.galaxy.springtest.proxy.performance.config.CglibProxyAppConfig;
+import com.lcl.galaxy.springtest.proxy.performance.config.JDKProxyAppConfig;
+import com.lcl.galaxy.springtest.proxy.service.AccountService;
+import com.lcl.galaxy.springtest.proxy.service.impl.AccountServiceImpl;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

@@ -1,10 +1,10 @@
-package com.lcl.galaxy.springtest.testProxy.testp;
+package com.lcl.galaxy.springtest.proxy.testProxy.testp;
 
-import com.lcl.galaxy.springtest.model.Account;
-import com.lcl.galaxy.springtest.service.AccountService;
-import com.lcl.galaxy.springtest.service.impl.AccountServiceImpl;
-import com.lcl.galaxy.springtest.testProxy.advice.MyInvocationHandler;
-import com.lcl.galaxy.springtest.testProxy.advice.MyMethodIntercepor;
+import com.lcl.galaxy.springtest.proxy.model.Account;
+import com.lcl.galaxy.springtest.proxy.service.AccountService;
+import com.lcl.galaxy.springtest.proxy.service.impl.AccountServiceImpl;
+import com.lcl.galaxy.springtest.proxy.testProxy.advice.MyInvocationHandler;
+import com.lcl.galaxy.springtest.proxy.testProxy.advice.MyMethodIntercepor;
 import net.sf.cglib.proxy.Enhancer;
 
 import java.lang.reflect.Proxy;

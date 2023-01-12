@@ -1,7 +1,7 @@
-package com.lcl.galaxy.springtest.performance.config;
+package com.lcl.galaxy.springtest.proxy.performance.config;
 
-import com.lcl.galaxy.springtest.service.AccountService;
-import com.lcl.galaxy.springtest.service.impl.AccountServiceImpl;
+import com.lcl.galaxy.springtest.proxy.service.AccountService;
+import com.lcl.galaxy.springtest.proxy.service.impl.AccountServiceImpl;
 import org.springframework.context.annotation.*;
 
 @Configuration
