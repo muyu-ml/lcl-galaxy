@@ -1,6 +1,6 @@
 package com.lcl.galaxy.rpc.server;
 
-import com.lcl.galaxy.rpc.service.impl.UserserviceImpl;
+import com.lcl.galaxy.rpc.service.UserServiceImpl;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ public class ServerTest {
     public  static  void main(String[] args) {
 
         Map<String, Object> servicePool = new HashMap<String, Object>();
-        servicePool.put("com.lcl.galaxy.rpc.service.UserService", new UserserviceImpl());
+        servicePool.put("com.lcl.galaxy.rpc.service.UserService", new UserServiceImpl());
 
         RpcServer server = new RpcServer(servicePool, 4, 9001);
 

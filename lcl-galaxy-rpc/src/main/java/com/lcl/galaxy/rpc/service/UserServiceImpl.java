@@ -1,15 +1,15 @@
-package com.lcl.galaxy.rpc.service.impl;
+package com.lcl.galaxy.rpc.service;
 
 import com.lcl.galaxy.rpc.service.UserService;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserserviceImpl implements UserService {
+public class UserServiceImpl implements UserService {
 
     private Map<String, String> userMap = new HashMap();
 
-    public UserserviceImpl(){
+    public UserServiceImpl(){
         userMap.put("1", "lcl1");
         userMap.put("2", "lcl2");
         userMap.put("3", "lcl3");
