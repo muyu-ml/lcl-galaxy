@@ -15,18 +15,18 @@ public class FutureBasedAsyncResult<T> extends AbstractAsyncResult<T>{
     @Override
     public Object getResult() {
         if(future == null){
-            return this.value;
+            return this.getValue();
         }
         try {
             T t = future.get();
-//            if(null != t){
-//                return ((FutureBasedAsyncResult)t).getValue();
-//            }
-            return t;
+            if(null != t){
+                //return ((FutureBasedAsyncResult)t).getValue();
+                return t;
+            }
+            return null;
         } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return null;
     }
 
     @Override
