@@ -1,0 +1,35 @@
+<beans>
+
+    <bean id="userService" class="com.lcl.galaxy.spring.frame.V2.service.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+
+    <bean id="userDao" class="com.lcl.galaxy.spring.frame.V2.dao.UserDaoImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://******:3306/ins_buying_0"/>
+        <property name="username" value="*******"/>
+        <property name="password" value="*******"/>
+    </bean>
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="typeAliases" value="com.lcl.galaxy.spring.demo.domain.UserDo"/>
+        <property name="typeAliasesPackage" value="com.lcl.galaxy.spring.demo.domain"/>
+        <property name="typeHandlers" value="com.lcl.galaxy.spring.demo.typehandlers.PhoneTypeHandler"/>
+        <property name="typeHandlersPackage" value="com.lcl.galaxy.spring.demo.typehandlers"/>
+        <property name="mapperLocations" value="classpath*:com/lcl/galaxy/spring/demo/**/*.xml"/>
+        <property name="configLocation" value="WEB-INF/mybatisconfig.xml"/>
+    </bean>
+
+    <bean id="userServiceMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="om.lcl.galaxy.spring.mappers.UserMapper"/>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.lcl.galaxy.spring.mappers"/>
+    </bean>
+</beans>
